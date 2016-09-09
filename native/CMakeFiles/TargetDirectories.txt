@@ -1,0 +1,3 @@
+/media/torsten/250GB/Programmering/TNM095/src/native/CMakeFiles/edit_cache.dir
+/media/torsten/250GB/Programmering/TNM095/src/native/CMakeFiles/rebuild_cache.dir
+/media/torsten/250GB/Programmering/TNM095/src/native/CMakeFiles/SDL_test.dir
