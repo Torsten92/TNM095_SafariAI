@@ -151,7 +151,7 @@ void Camera::handle_input()
 				case SDL_MOUSEWHEEL:
 					//Scale scene (positive or negative)
 					if( ( scale < 2.0 && e.wheel.y > 0) || (scale > 0.2 && e.wheel.y < 0) )
-						scale += static_cast<float>(e.wheel.y) / 10;
+						scale += e.wheel.y > 0 ? 0.1 : -0.1;
 					scale = min(max(scale, 0.2f), 2.0f); //some web-browers use too big scroll step.
 				break;
 			}

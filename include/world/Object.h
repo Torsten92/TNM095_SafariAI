@@ -29,8 +29,8 @@ public:
 	void change_clip(SDL_Rect c);
 	void change_texture(Texture* _tex);
 
-	bool operator<(const Object& other) { return ( depth != other.depth ? depth > other.depth : 
-											(y_pos != other.y_pos ? y_pos > other.y_pos : x_pos > other.x_pos) ); }
+	bool operator<(const Object& other) { return ( depth != other.depth ? depth < other.depth : 
+											(y_pos != other.y_pos ? y_pos < other.y_pos : x_pos < other.x_pos) ); }
 
 private:
 	const string name;

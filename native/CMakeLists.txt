@@ -14,6 +14,7 @@ add_executable(SDL_test
 	../include/core/Renderer.cpp
 	../include/core/Camera.cpp
 	../include/core/ObjectHandler.cpp
+	../include/core/Utilities.cpp
 	../include/core/Texture.cpp
 	../include/world/Object.cpp
 	../include/world/Grass.cpp

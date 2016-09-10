@@ -1,8 +1,13 @@
 #pragma once
 
 #include "Object.h"
+#include "../core/RandomGenerator.h"
+#include "../core/Utilities.h"
 
 #include <vector>
+#include <functional>
+
+using namespace utilities;
 
 class Animal : public Object
 {
@@ -17,6 +22,8 @@ public:
 
 	virtual void update() = 0;
 protected:
+	RandomGenerator generateRand;
+
 	float age = 0.0; //in seconds
 	float hunger_level = 0.5; //decreases with time. 0.0 = death. 1.0 = full.
 	bool alive = true; //becomes false when animal dies
@@ -28,15 +35,19 @@ protected:
 	//this function decides which action to take
 	void scan_area();
 
+	//the current state which is executed every frame.
+	function<void()> current_state;
+
 	//states/actions
-	void find_food();
-	void find_mate();
-	void flee();
-	void attack();
-	void fight(); //shared state
-	void mate(); //shared state
-	void eat(); //special shared state (must be with another dead animal, or grass)
-	void dead();
+	function<void()> idle;
+	function<void()> find_food();
+	function<void()> find_mate();
+	function<void()> flee();
+	function<void()> attack();
+	function<void()> fight(); //shared state
+	function<void()> mate(); //shared state
+	function<void()> eat(); //special shared state (must be with another dead animal, or grass)
+	function<void()> dead();
 
 	const float scan_radius = 50.0;
 	const float max_age; //age at which the animal dies
@@ -53,4 +64,8 @@ protected:
 	};
 
 	vector<Species> discovered_species;
+
+	//State specific variables. Should probably be moved to separate class or something
+	vec2 goal = { 0.0, 0.0 };
+	void move(vec2 from, vec2 to);
 };

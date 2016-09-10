@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=c++11 -O2 -Wall
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/media/torsten/250GB/Programmering/TNM095/src/native/../include 
+CXX_INCLUDES = -I/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/native/../include 
 

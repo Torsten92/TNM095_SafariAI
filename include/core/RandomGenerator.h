@@ -1,6 +1,7 @@
 #pragma once
 
 #include <random>
+#include <chrono>
 #include <climits>
 
 // A simple random number generator that is used as a function object. 
@@ -8,6 +9,14 @@
 class RandomGenerator
 {
 public:
+
+	RandomGenerator()
+	{
+		typedef std::chrono::high_resolution_clock myclock;
+  		myclock::time_point beginning = myclock::now();
+  		myclock::duration d = myclock::now() - beginning;
+		generator.seed(d.count());
+	}
 
 	//Returns a random positive integer value 
 	unsigned long int operator()()
@@ -25,5 +34,4 @@ public:
 
 private:
 	default_random_engine generator;
-
 };

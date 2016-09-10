@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Camera.cpp
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp
 Camera.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Camera.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Camera.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.h
 Globals.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Globals.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Globals.h
 ../world/Object.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Object.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.h
 vector
 -
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Globals.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Globals.h
 iostream
 -
 SDL2/SDL.h
@@ -34,117 +34,147 @@ stdlib.h
 random
 -
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/ObjectHandler.cpp
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp
 ObjectHandler.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/ObjectHandler.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/ObjectHandler.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.h
 Globals.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Globals.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Globals.h
 RandomGenerator.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/RandomGenerator.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.h
 Resources.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Resources.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.h
 Camera.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Camera.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.h
 ../world/Object.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Object.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.h
+../world/Herbivore.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.h
+../world/Carnivore.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.h
 ../world/Grass.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Grass.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.h
 algorithm
 -
 vector
 -
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/RandomGenerator.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.h
 random
+-
+chrono
 -
 climits
 -
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Renderer.cpp
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp
 Renderer.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Renderer.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Renderer.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.h
 Globals.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Globals.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Globals.h
 ../world/Object.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Object.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.h
 vector
 -
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Resources.cpp
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp
 Resources.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Resources.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Resources.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.h
 Texture.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Texture.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.h
 map
 -
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Texture.cpp
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp
 Texture.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Texture.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Texture.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.h
 Globals.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Globals.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Globals.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/main_native.cpp
-core/Globals.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Globals.h
-core/Renderer.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Renderer.h
-core/Resources.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Resources.h
-core/Camera.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Camera.h
-core/ObjectHandler.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/ObjectHandler.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp
+Utilities.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Animal.cpp
-Animal.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Animal.h
-
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Animal.h
-Object.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Object.h
-vector
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.h
+stdio.h
+-
+unistd.h
+-
+stdlib.h
+-
+random
+-
+initializer_list
+-
+cmath
 -
 
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Carnivore.cpp
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp
+core/Globals.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Globals.h
+core/Renderer.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.h
+core/Resources.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.h
+core/Camera.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.h
+core/ObjectHandler.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.h
+
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp
+Animal.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.h
+
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.h
+Object.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.h
+../core/RandomGenerator.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.h
+../core/Utilities.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.h
+vector
+-
+functional
+-
+
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp
 Carnivore.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Carnivore.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Carnivore.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.h
 Animal.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Animal.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Grass.cpp
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp
 Grass.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Grass.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Grass.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.h
 Object.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Object.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Herbivore.cpp
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp
 Herbivore.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Herbivore.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Herbivore.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.h
 Animal.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Animal.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Object.cpp
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp
 Object.h
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Object.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.h
 
-/media/torsten/250GB/Programmering/TNM095/src/include/world/Object.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.h
 ../core/Globals.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Globals.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Globals.h
 ../core/Texture.h
-/media/torsten/250GB/Programmering/TNM095/src/include/core/Texture.h
+/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.h
 

@@ -6,14 +6,15 @@ Herbivore::Herbivore(Texture* _tex, string _name, int x_pos, int y_pos, int _dep
 {
 	size = _size;
 	food_value = _food_value;
-	prefer_company = _prefer_company; 
+	prefer_company = _prefer_company;
+	current_state = idle;
 }
 
-//This where shit happens
 void Herbivore::update()
 {
 	age += dt;
-
 	hunger_level -= dt/1000;
+
+	current_state();
 
 }

@@ -6,6 +6,8 @@
 #include "Camera.h"
 
 #include "../world/Object.h"
+#include "../world/Herbivore.h"
+#include "../world/Carnivore.h"
 #include "../world/Grass.h"
 
 #include <algorithm>
@@ -20,8 +22,6 @@ public:
 	
 	void init_members(Resources* _res, Camera* _cam);
 
-	void insert_sorted(Object* o);
-	
 	void update();
 	void set_map(int val);
 
@@ -32,6 +32,7 @@ public:
 	
 private:
 	vector<Object*> object_list;
+	vector<Object*> sorted_objects;
 	vector<Object*> background;
 	Resources* resources;
 	Camera* camera;
