@@ -13,7 +13,11 @@ bool quit = false;
 * Loads the image located at 'fileName' and copies it to the
 * renderer 'renderer'
 */
+#ifdef __unix__
+int main(int argc, char** argv)
+#elif defined(_WIN32) || defined(WIN32)
 int wmain(int argc, char** argv)
+#endif
 {
 	Renderer renderer;
 	Camera camera;
