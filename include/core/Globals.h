@@ -4,10 +4,17 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <random>
+#ifdef __unix__
+	#include <stdio.h>
+	#include <unistd.h>
+	#include <stdlib.h>
+	#include <random>
+#elif defined(_WIN32) || defined(WIN32)
+	#include <windows.h>
+	#include <stdio.h>
+	#include <string>
+	#include <tchar.h>
+#endif
 
 using namespace std;
 

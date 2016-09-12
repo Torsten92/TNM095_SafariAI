@@ -13,7 +13,7 @@ bool quit = false;
 * Loads the image located at 'fileName' and copies it to the
 * renderer 'renderer'
 */
-int main()
+int wmain(int argc, char** argv)
 {
 	Renderer renderer;
 	Camera camera;

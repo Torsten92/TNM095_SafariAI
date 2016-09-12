@@ -1,17 +1,27 @@
 #ifndef _UTILITIES_
 #define _UTILITIES_
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <random>
+
+#ifdef __unix__
+	#include <stdio.h>
+	#include <unistd.h>
+	#include <stdlib.h>
+	#include <random>
+#elif defined(_WIN32) || defined(WIN32)
+	#define OS_Windows
+	#include <windows.h>
+	#include <stdio.h>
+	#include <initializer_list>
+	#include <cmath>
+#endif
 
 // Contains simple 2D-vector operations.
 namespace utilities
 {
-	#include <initializer_list>
-	#include <cmath>
-
+	#ifndef OS_Windows
+		#include <initializer_list>
+		#include <cmath>
+	#endif
 	struct vec2
 	{
 		vec2(std::initializer_list<float> l);

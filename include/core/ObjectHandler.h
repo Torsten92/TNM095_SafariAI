@@ -11,6 +11,7 @@
 #include "../world/Grass.h"
 
 #include <algorithm>
+#include <iterator>
 #include <vector>
 #include <functional>
 
