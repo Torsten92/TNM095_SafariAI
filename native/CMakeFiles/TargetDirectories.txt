@@ -1,3 +1,0 @@
-/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/native/CMakeFiles/edit_cache.dir
-/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/native/CMakeFiles/rebuild_cache.dir
-/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/native/CMakeFiles/SDL_test.dir
