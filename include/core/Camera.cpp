@@ -23,10 +23,11 @@ void Camera::set_view(const vector<Object*>& v, float screen_w, float screen_h)
 		o->set_y_camera( o->get_y() - y_pos + 300/scale );
 
 		x_min = (o->get_x() - 200/scale < x_min) ? o->get_x() - 200/scale : x_min;
-		x_max = (o->get_x() - 200/scale > x_max) ? o->get_x() + 200/scale : x_max;
+		x_max = (o->get_x() + 200/scale > x_max) ? o->get_x() + 200/scale : x_max;
 		y_min = (o->get_y() - 150/scale < y_min) ? o->get_y() - 150/scale : y_min;
 		y_max = (o->get_y() + 150/scale > y_max) ? o->get_y() + 150/scale : y_max;
 	}
+	//Move camera inside bounds again if it was at limit and bounds shrunk
 	x_pos = (x_pos < x_min) ? x_min : x_pos;
 	x_pos = (x_pos > x_max) ? x_max : x_pos;
 	y_pos = (y_pos < y_min) ? y_min : y_pos;

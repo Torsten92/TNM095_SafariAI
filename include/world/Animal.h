@@ -13,7 +13,7 @@ class Animal : public Object
 {
 public:
 	virtual ~Animal() = default;
-	Animal( Texture* _tex, string _name, int x_pos = 0, int y_pos = 0, int _depth = 0, SDL_Rect _clip = { 0, 0, 0, 0 },
+	Animal( Texture* _tex, string _name, function<vector<Object*>(float, float, float)> scan_func, int x_pos = 0, int y_pos = 0, int _depth = 0, SDL_Rect _clip = { 0, 0, 0, 0 },
 			float _max_age = 1000.0, float _max_speed = 5.0, float stamina = 0.5, float _attack_power = 0.5, float _size = 1.0, float food_value = 0.5 );
 
 	void render(float scaleX = 1.0, float scaleY = 1.0) override;
@@ -29,7 +29,7 @@ protected:
 	RandomGenerator generateRand;
 
 	//Returns objects in the vicinity. Decides which action to take
-	vector<Object*> scan_area();
+	function<vector<Object*>(float, float, float)> scan_area;
 
 	//The current state which is executed every frame.
 	function<void()> current_state;
@@ -46,7 +46,7 @@ protected:
 	function<void()> dead;
 
 	//Constant variables initialized on creation.
-	const float scan_radius = 50.0;
+	const float scan_radius = 500.0;
 	const float max_age; //age at which the animal dies
 	const float max_speed; //maximum running speed
 	const float stamina; //determines how fast hunger_level decreases in special draining states

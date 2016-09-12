@@ -4,19 +4,14 @@ Grass::Grass(Texture* _tex, string _name, int x_pos, int y_pos, int _depth, SDL_
 	: Object(_tex, _name, x_pos, y_pos, _depth, _clip)
 {}
 
-int Grass::get_stage()
+float Grass::get_food_value()
 {
-	return stage;
+	return food_value;
 }
 
 float Grass::get_age()
 {
 	return age;
-}
-
-void Grass::set_stage(int val)
-{
-	stage = val;
 }
 
 
@@ -33,4 +28,5 @@ void Grass::scan_area()
 void Grass::update()
 {
 	age += dt;
+	food_value = min(max(food_value + dt * 0.005, 0.0), 0.15);
 }

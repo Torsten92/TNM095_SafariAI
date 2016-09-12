@@ -26,13 +26,13 @@ void ObjectHandler::set_map(int val)
 		srand(time(NULL));
 		for(int i = 0; i < 8; i++)
 			for(int j = 0; j < 8; j++)
-				object_list.push_back( new Grass(resources->get_texture("../assets/grass_low.png"), "grass", -150+rand()%300, 0+rand()%300) );
+				object_list.push_back( new Grass(resources->get_texture("../assets/grass_low.png"), "grass", -150+generateRand(800), 0+generateRand(500)) );
 
-		object_list.push_back( new Herbivore(resources->get_texture("../assets/deer.png"), "deer", 50, 50) );
-		object_list.push_back( new Herbivore(resources->get_texture("../assets/deer.png"), "deer", 150, 50) );
-		object_list.push_back( new Herbivore(resources->get_texture("../assets/deer.png"), "deer", 100, 0) );
-		object_list.push_back( new Object(resources->get_texture("../assets/bear.png"), "hej", 250, 250) );
-		object_list.push_back( new Object(resources->get_texture("../assets/wolf.png"), "hej", 350, 150) );
+		object_list.push_back( new Herbivore(resources->get_texture("../assets/deer.png"), "deer", bind(&ObjectHandler::get_objects_in_radius, this, _1, _2, _3 ), 50, 50) );
+		object_list.push_back( new Herbivore(resources->get_texture("../assets/deer.png"), "deer", bind(&ObjectHandler::get_objects_in_radius, this, _1, _2, _3 ), 150, 50) );
+		object_list.push_back( new Herbivore(resources->get_texture("../assets/deer.png"), "deer", bind(&ObjectHandler::get_objects_in_radius, this, _1, _2, _3 ), 100, 0) );
+		object_list.push_back( new Object(resources->get_texture("../assets/bear.png"), "bear object", 250, 250) );
+		object_list.push_back( new Object(resources->get_texture("../assets/wolf.png"), "wolf object", 350, 150) );
 	}
 }
 
@@ -53,6 +53,19 @@ vector<Object*> ObjectHandler::get_objects()
 	copy(object_list.begin(), object_list.end(), back_inserter(nearby_objects));
 	sort(nearby_objects.begin(), nearby_objects.end(), PointerCompare());
 	
+	return nearby_objects;
+}
+
+//Returns all objects within a radius of a position.
+//Used by animals when scanning for other objects in their vicinity.
+vector<Object*> ObjectHandler::get_objects_in_radius(float pos_x, float pos_y, float radius)
+{
+	vector<Object*> nearby_objects;
+	copy_if(object_list.begin(), object_list.end(), back_inserter(nearby_objects),
+		[&](Object* const & o)
+		{
+			return sqrt( pow(pos_x - o->get_x(), 2) + pow(pos_y - o->get_y(), 2) ) < radius;
+		});
 	return nearby_objects;
 }
 
@@ -93,18 +106,15 @@ void ObjectHandler::update()
 		if( Grass* g = dynamic_cast<Grass*>(o) )
 		{
 			g->update();
-			if(g->get_age() > 10.0 && g->get_stage() == 1)
-			{
-				g->set_stage(2);
+			float food_val = g->get_food_value();
+			if( 0.00 < food_val && food_val <= 0.05 )
+				g->change_texture(resources->get_texture("../assets/grass_low.png"));
+			if( 0.05 < food_val && food_val <= 0.10 )
 				g->change_texture(resources->get_texture("../assets/grass_mid.png"));
-			}
-			if(g->get_age() > 20.0 && g->get_stage() == 2)
-			{
-				g->set_stage(3);
+			if( 0.10 < food_val )
 				g->change_texture(resources->get_texture("../assets/grass_high.png"));
-			}
 
-			if(g->get_stage() == 3) 
+			if(0.10 < food_val) 
 			{
 				if(update_info || g->get_spawner_radius() == 0)
 				{

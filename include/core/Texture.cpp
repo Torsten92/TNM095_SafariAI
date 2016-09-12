@@ -87,12 +87,12 @@ void Texture::set_screen_dim(int w, int h)
 	screen_height = h;
 }
 
-int Texture::getWidth()
+int Texture::get_width()
 {
 	return width;
 }
 
-int Texture::getHeight()
+int Texture::get_height()
 {
 	return height;
 }

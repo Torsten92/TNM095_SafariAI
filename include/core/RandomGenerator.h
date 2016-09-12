@@ -1,7 +1,7 @@
 #pragma once
 
 #include <random>
-#include <chrono>
+#include <time.h>
 #include <climits>
 
 using namespace std;
@@ -14,10 +14,7 @@ public:
 
 	RandomGenerator()
 	{
-		typedef std::chrono::high_resolution_clock myclock;
-  		myclock::time_point beginning = myclock::now();
-  		myclock::duration d = myclock::now() - beginning;
-		generator.seed(d.count());
+		generator.seed(time(NULL));
 	}
 
 	//Returns a random positive integer value 
@@ -35,6 +32,5 @@ public:
 	}
 
 private:
-	//static float a;
 	static default_random_engine generator;
 };

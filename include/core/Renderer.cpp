@@ -86,11 +86,18 @@ void Renderer::render_frame(vector<Object*>& background, vector<Object*>& v, flo
 	//Clear screen
 	SDL_RenderClear( renderer );
 	
+	float scale_x = scale*SCREEN_WIDTH/800;
+	float scale_y = scale*SCREEN_HEIGHT/600;
+
 	//Render textures to screen (first background, then objects)
 	for(auto o : background)
-		o->render(scale*SCREEN_WIDTH/800, scale*SCREEN_HEIGHT/600);
-	for(auto o : v)
-		o->render(scale*SCREEN_WIDTH/800, scale*SCREEN_HEIGHT/600);
+		o->render(scale_x, scale_y);
+	for(auto o : v) {
+		o->render(scale_x, scale_y);
+		
+		//uncomment to render a line showing how far animal "sees"
+		//SDL_RenderDrawLine(renderer,o->get_x_camera() * scale_x, o->get_y_camera() * scale_y, (o->get_x_camera() + 500) * scale_x, o->get_y_camera() * scale_y);
+	}
 
 	//Update screen
 	SDL_RenderPresent(renderer);

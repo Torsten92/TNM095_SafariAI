@@ -22,8 +22,8 @@ public:
 	void set_screen_dim(int w, int h);
 
 	//Gets image dimensions
-	int getWidth();
-	int getHeight();
+	int get_width();
+	int get_height();
 
 private:	
 	//The actual hardware texture

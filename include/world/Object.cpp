@@ -5,18 +5,18 @@ Object::Object(Texture* _tex, string _name, float x_pos, float y_pos, int _depth
 {	
 	if( _clip.w == 0 && _clip.h == 0 )
 	{
-		_clip.w = texture->getWidth();
-		_clip.h = texture->getHeight();
+		_clip.w = texture->get_width();
+		_clip.h = texture->get_height();
 	}
 	clip = _clip;
 	
 	//Currently uses simple radius based on texture size
-	collision_radius = 1.5 * texture->getWidth();
+	collision_radius = 1.5 * texture->get_width();
 }
 
 void Object::render(float scaleX, float scaleY)
 {
-	texture->render(x_pos_camera * scaleX, y_pos_camera * scaleY, &clip, scaleX, scaleY);
+	texture->render((x_pos_camera-texture->get_width()/2) * scaleX, (y_pos_camera-texture->get_height()/2) * scaleY, &clip, scaleX, scaleY);
 }
 
 float Object::get_x()

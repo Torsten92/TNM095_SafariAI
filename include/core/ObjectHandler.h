@@ -12,7 +12,9 @@
 
 #include <algorithm>
 #include <vector>
+#include <functional>
 
+using namespace std::placeholders;
 
 class ObjectHandler
 {
@@ -28,6 +30,7 @@ public:
 	void generate_grass(float x, float y);
 
 	vector<Object*> get_objects();
+	vector<Object*> get_objects_in_radius(float pos_x, float pos_y, float radius);
 	vector<Object*> get_background();
 	
 private:
