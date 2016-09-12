@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <random>
 
-// Contains simple vector operations.
+// Contains simple 2D-vector operations.
 namespace utilities
 {
 	#include <initializer_list>
@@ -17,6 +17,8 @@ namespace utilities
 		vec2(std::initializer_list<float> l);
 		vec2(float _x, float _y);
 		vec2 operator/(float val);
+		vec2 operator*(float val);
+		friend const vec2 operator*(float val, const vec2& v);
 		float x, y;
 	};
 

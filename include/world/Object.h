@@ -9,7 +9,7 @@ public:
 	virtual ~Object() = default;
 	Object( Texture* _tex, string _name, float x_pos = 0, float y_pos = 0, int _depth = 0, SDL_Rect _clip = { 0, 0, 0, 0 } );
 	
-	void render(float scaleX = 1.0, float scaleY = 1.0);
+	virtual void render(float scaleX = 1.0, float scaleY = 1.0); //may be overridden
 	
 	float get_x();
 	float get_y();
@@ -32,7 +32,7 @@ public:
 	bool operator<(const Object& other) { return ( depth != other.depth ? depth < other.depth : 
 											(y_pos != other.y_pos ? y_pos < other.y_pos : x_pos < other.x_pos) ); }
 
-private:
+protected:
 	const string name;
 	Texture* texture;
 	

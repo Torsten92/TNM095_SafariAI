@@ -43,24 +43,14 @@ struct PointerCompare {
 	}
 };
 
-// Returns a vector containing the objects close enough to fit the screen.
-// Dimensions are 1600x1200 around camera. All in all it is 4x the size of camera window
-// For a true wild.life simulation this optimisation should probably be turned off to allow
-// whole scene to work even when user is not looking
+//Returns all objects in the scene, sorted by depth.
+//We need to re-sort every frame to render correct object depth. Possibly a better solution 
+//exist, but this works for now.
 vector<Object*> ObjectHandler::get_objects()
 {
 	vector<Object*> nearby_objects;
-	
-	copy_if(object_list.begin(), object_list.end(), back_inserter(nearby_objects),
-		[this](Object* const & o)
-		{
-			return true;
-			//return camera->get_x_pos() > o->get_x() - 800 &&
-			//	   camera->get_x_pos() < o->get_x() + 800 &&
-			//	   camera->get_y_pos() > o->get_y() - 600 &&
-			//	   camera->get_y_pos() < o->get_y() + 600;
-		});
 
+	copy(object_list.begin(), object_list.end(), back_inserter(nearby_objects));
 	sort(nearby_objects.begin(), nearby_objects.end(), PointerCompare());
 	
 	return nearby_objects;
@@ -71,6 +61,8 @@ vector<Object*> ObjectHandler::get_background()
 	return background;
 }
 
+//Updates all objects in the scene. (position, state etc.)
+//May also create new objects if certain conditions are met
 void ObjectHandler::update()
 {
 	bool update_info = false;
@@ -82,31 +74,31 @@ void ObjectHandler::update()
 	//handle per-frame computation for specific objects
 	for(auto& o : get_objects())
 	{
+		//Handle animals
 		if( Animal* a = dynamic_cast<Animal*>(o) )
 		{
-			a->update();
-			/*
-			if( Herbivore* h = dynamic_cast<Herbivore*>(a) )
+			a->update(); //Different update functions for herbivores and carnivores
+
+			if(!a->is_alive())
+				a->set_dead_tex(resources->get_texture("../assets/dead.png"));
+
+			if(a->get_food_value() <= 0.0)
 			{
-				
+				object_list.erase(find(object_list.begin(), object_list.end(), a));
+				continue;
 			}
-			if( Carnivore* c = dynamic_cast<Carnivore*>(a) )
-			{
-				
-			}
-			*/
-		}
-			
+		}	
 		
+		//Handle grass
 		if( Grass* g = dynamic_cast<Grass*>(o) )
 		{
 			g->update();
-			if(g->get_age() > 2.0 && g->get_stage() == 1)
+			if(g->get_age() > 10.0 && g->get_stage() == 1)
 			{
 				g->set_stage(2);
 				g->change_texture(resources->get_texture("../assets/grass_mid.png"));
 			}
-			if(g->get_age() > 4.0 && g->get_stage() == 2)
+			if(g->get_age() > 20.0 && g->get_stage() == 2)
 			{
 				g->set_stage(3);
 				g->change_texture(resources->get_texture("../assets/grass_high.png"));
@@ -120,7 +112,7 @@ void ObjectHandler::update()
 				}
 
 				//chance for each grass to spawn new grass
-				if(generateRand(1000) == 0)
+				if(generateRand(5000) == 0)
 				{
 					float r = g->get_spawner_radius();
 					object_list.push_back( new Grass(resources->get_texture("../assets/grass_low.png"), "grass", 

@@ -18,6 +18,16 @@ namespace utilities
 		return vec2(x/val, y/val);
 	}
 
+	vec2 vec2::operator*(float val)
+	{
+		return vec2(x*val, y*val);
+	}
+	
+	const vec2 operator*(float val, const vec2& v)
+	{
+		return vec2(v.x*val, v.y*val);
+	}
+
 	const float dist(const float x1, const float y1, const float x2, const float y2)
 	{
 		return sqrt(pow(x1-x2,2) + pow(y1-y2,2) );

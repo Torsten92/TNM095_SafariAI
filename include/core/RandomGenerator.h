@@ -4,6 +4,8 @@
 #include <chrono>
 #include <climits>
 
+using namespace std;
+
 // A simple random number generator that is used as a function object. 
 // Returns a new random value every time operator() is called.
 class RandomGenerator
@@ -33,5 +35,6 @@ public:
 	}
 
 private:
-	default_random_engine generator;
+	//static float a;
+	static default_random_engine generator;
 };

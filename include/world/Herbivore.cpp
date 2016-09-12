@@ -13,7 +13,13 @@ Herbivore::Herbivore(Texture* _tex, string _name, int x_pos, int y_pos, int _dep
 void Herbivore::update()
 {
 	age += dt;
-	hunger_level -= dt/1000;
+	hunger_level -= dt * 0.001;
+	cout << get_name() << " hunger = " << hunger_level << " alive = " << alive << " food value = " << food_value << endl;
+	if(hunger_level <= 0.0 || age > max_age)
+	{
+		alive = false;
+		current_state = dead;
+	}
 
 	current_state();
 

@@ -63,8 +63,8 @@ void Texture::render( int x, int y, float scaleX, float scaleY )
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { x, y, 
-			static_cast<int>( ceil(width * scaleX) ), 
-			static_cast<int>( ceil(height * scaleY) ) 
+			static_cast<int>( ceil(width * scaleX)+1 ),	//TODO: +1 should not be necessary, fixes artefacts
+			static_cast<int>( ceil(height * scaleY)+1 ) //that may appear sometimes, find problem and fix.
 	};
 	SDL_RendererFlip flipType = SDL_FLIP_NONE;
 	SDL_RenderCopyEx( renderer, texture, NULL, &renderQuad, 0, NULL, flipType );
@@ -74,8 +74,8 @@ void Texture::render( int x, int y, SDL_Rect* clip, float scaleX, float scaleY )
 {
 	//Set rendering space and render to screen
 	SDL_Rect renderQuad = { x, y, 
-			static_cast<int>( ceil(clip->w * scaleX) ), 
-			static_cast<int>( ceil(clip->h * scaleY) ) 
+			static_cast<int>( ceil(clip->w * scaleX)+1 ), //TODO: +1 should not be necessary, fixes artefacts
+			static_cast<int>( ceil(clip->h * scaleY)+1 )  //that may appear sometimes, find problem and fix.
 	};
 	SDL_RendererFlip flipType = SDL_FLIP_NONE;
 	SDL_RenderCopyEx( renderer, texture, clip, &renderQuad, 0, NULL, flipType );
