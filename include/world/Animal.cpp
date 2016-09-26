@@ -13,19 +13,13 @@ Animal::Animal(Texture* _tex, string _name, function<vector<Object*>(float, floa
 		//note that scan_area also return itself as a nearby object
 		vector<Object*> nearby_objects = scan_area(get_x(), get_y(), scan_radius);
 
-		if(hunger_level < 0.9)
-		{
-			current_state = find_food;
-			return;
-		}
-
 		idling = max(0.f , idling - dt);
 		vec2 pos = { get_x(), get_y() };
 		if( (goal.x == 0.0 && goal.y == 0.0) || dist(goal, pos) < 5.0 )
 		{
 			//one in four that animal just stands still
-			if(idling == 0.0 && generateRand(3) == 0)
-				idling = 2.0;
+			if(idling == 0.f && generateRand(3) == 0)
+				idling = 1.0 + generateRand(20) / 10; // 1.0-3.0 seconds
 			else
 			{
 				float radius = 50 + generateRand(50);
@@ -35,7 +29,7 @@ Animal::Animal(Texture* _tex, string _name, function<vector<Object*>(float, floa
 			}
 		}
 		if(idling == 0.0)
-			move(pos, goal, 0.2);
+			move(pos, goal, 0.15);
 	};
 
 	//initialize the find_food state
@@ -54,7 +48,7 @@ Animal::Animal(Texture* _tex, string _name, function<vector<Object*>(float, floa
 			goal.x = pos.x + radius*cos(angle);
 			goal.y = pos.y + radius*sin(angle);
 		}
-		move(pos, goal, 0.2);
+		move(pos, goal, 0.25);
 	};
 
 	//initialize the dead state

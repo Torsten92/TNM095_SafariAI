@@ -3,6 +3,7 @@
 #include "Object.h"
 #include "../core/RandomGenerator.h"
 #include "../core/Utilities.h"
+#include "../CBR/CBR.h"
 
 #include <vector>
 #include <functional>
@@ -27,6 +28,7 @@ public:
 	virtual void update() = 0;
 protected:
 	RandomGenerator generateRand;
+	CBR cbr;
 
 	//Returns objects in the vicinity. Decides which action to take
 	function<vector<Object*>(float, float, float)> scan_area;

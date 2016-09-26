@@ -18,6 +18,7 @@ add_executable(SafariAI
 	../include/world/Animal.cpp
 	../include/world/Herbivore.cpp
 	../include/world/Carnivore.cpp
+	../include/CBR/CBR.cpp
 )
 
 target_link_libraries (SafariAI GL GLU SDL2 SDL2_image)

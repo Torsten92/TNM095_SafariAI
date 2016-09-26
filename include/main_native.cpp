@@ -13,7 +13,6 @@ bool quit = false;
 * Loads the image located at 'fileName' and copies it to the
 * renderer 'renderer'
 */
-<<<<<<< HEAD
 #ifdef __unix__
 int main(int argc, char** argv)
 #elif defined(_WIN32) || defined(WIN32)

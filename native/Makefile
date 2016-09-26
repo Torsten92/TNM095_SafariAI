@@ -123,6 +123,33 @@ SafariAI/fast:
 	$(MAKE) -f CMakeFiles/SafariAI.dir/build.make CMakeFiles/SafariAI.dir/build
 .PHONY : SafariAI/fast
 
+media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.o
+
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.o
+
+# target to build an object file
+media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.o:
+	$(MAKE) -f CMakeFiles/SafariAI.dir/build.make CMakeFiles/SafariAI.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.o
+
+media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.i
+
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.i
+
+# target to preprocess a source file
+media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.i:
+	$(MAKE) -f CMakeFiles/SafariAI.dir/build.make CMakeFiles/SafariAI.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.i
+
+media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.s
+
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.s
+
+# target to generate assembly for a file
+media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.s:
+	$(MAKE) -f CMakeFiles/SafariAI.dir/build.make CMakeFiles/SafariAI.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.s
+
 media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.o
 
 .PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.o
@@ -483,6 +510,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SafariAI"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.s"
 	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.o"
 	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.i"
 	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.s"
