@@ -1,18 +1,29 @@
+#ifndef WORLDSTATE_
+#define WORLDSTATE_
+
+
 #include "../core/Globals.h"
+#include "../core/Utilities.h"
+#include "../world/Animal.h"
 
 #include <vector>
 
-enum actions { IDLE, FIND_FOOD, FIND_MATE, FLEE, ATTACK, FIGHT, MATE, EAT, DEAD };
-
+using namespace utilities;
 
 // Holds the public information of an animal, i.e. what other animals see when they look at it.
 
 struct PublicAnimal
 {
+	//Constructor. Each public animal must be initialized.
+	PublicAnimal(int t, float s, int a, float cs, vec2 p)
+		: type{t}, size{s}, action{a}, current_speed{cs}, pos{p}
+	{}
+
 	int type;
 	float size;
 	int action;
 	float current_speed;
+	vec2 pos;
 };
 
 
@@ -21,8 +32,12 @@ struct PublicAnimal
 
 struct WorldState
 {
-	int type;
-	float hunger;
-	float size;
-	vector<PublicAnimal> nearby_animals;
+	//Constructor. Each world-state must be initialized.
+	WorldState(vector<Object*> na)
+		: nearby_animals{na}
+	{}
+
+	vector<Object*> nearby_animals;
 };
+
+#endif

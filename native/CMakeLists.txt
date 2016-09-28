@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.6)
 project (SafariAI)
 
-add_definitions (-std=c++11 -O2 -Wall)
+add_definitions (-std=c++11 -g -Wall)
 
 #Add project files here below main.cpp
 add_executable(SafariAI 

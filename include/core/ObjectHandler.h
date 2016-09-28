@@ -44,6 +44,8 @@ private:
 
 	int update_counter = 0; //makes sure we don't need to update some information every frame
 	
+	vector<Object*>::iterator removeObject(vector<Object*>::iterator it);
+
 	enum game_states
 	{
 		WORLD,

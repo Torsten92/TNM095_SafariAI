@@ -1,8 +1,10 @@
 #include "Object.h"
 
-Object::Object(Texture* _tex, string _name, float x_pos, float y_pos, int _depth, SDL_Rect _clip)
-	: name{_name}, texture{_tex}, x_pos{x_pos}, y_pos{y_pos}, x_pos_camera{x_pos}, y_pos_camera{y_pos}, depth{_depth}
-{	
+Object::Object(Texture* _tex, int _type, float x_pos, float y_pos, int _depth, SDL_Rect _clip)
+	: type{_type}, texture{_tex}, x_pos{x_pos}, y_pos{y_pos}, x_pos_camera{x_pos}, y_pos_camera{y_pos}, depth{_depth}
+{
+	RandomGenerator rg;
+	id = RandomGenerator::unique();
 	if( _clip.w == 0 && _clip.h == 0 )
 	{
 		_clip.w = texture->get_width();
@@ -39,9 +41,14 @@ float Object::get_y_camera()
 	return y_pos_camera;
 }
 
-string Object::get_name()
+int Object::get_type()
 {
-	return name;
+	return type;
+}
+
+unsigned long int Object::get_id()
+{
+	return id;
 }
 
 int Object::get_colrad()

@@ -1,4 +1,8 @@
 #include "RandomGenerator.h"
 
+unsigned long int RandomGenerator::unique_id = 0;
 
-default_random_engine RandomGenerator::generator;
+unsigned long int RandomGenerator::unique()
+{
+	return unique_id++;
+}

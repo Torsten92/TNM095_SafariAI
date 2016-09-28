@@ -18,6 +18,9 @@
 
 using namespace std;
 
+enum actions { IDLE, FIND_FOOD, FIND_MATE, FLEE, ATTACK, FIGHT, MATE, EAT, DEAD };
+enum animal_types { GRASS, DEER, WOLF, BEAR };
+
 //Exit game when quit is true
 extern bool quit;
 

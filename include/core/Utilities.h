@@ -26,9 +26,17 @@ namespace utilities
 	{
 		vec2(std::initializer_list<float> l);
 		vec2(float _x, float _y);
-		vec2 operator/(float val);
-		vec2 operator*(float val);
+		const vec2 operator/(float val);
+		const vec2 operator*(float val);
+		const vec2 operator-(float val);
+		const vec2 operator+(float val);
+		const vec2 operator-(const vec2& v);
+		const vec2 operator+(const vec2& v);
+		void operator=(const vec2& v);
+		void operator+=(const vec2& v);
 		friend const vec2 operator*(float val, const vec2& v);
+		friend const vec2 operator-(const vec2& v1, const vec2& v2);
+		friend const vec2 operator+(const vec2& v1, const vec2& v2);
 		float x, y;
 	};
 

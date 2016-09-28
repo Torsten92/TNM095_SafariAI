@@ -1,13 +1,16 @@
-#pragma once
+#ifndef OBJECT_
+#define OBJECT_
+
 
 #include "../core/Globals.h"
+#include "../core/RandomGenerator.h"
 #include "../core/Texture.h"
 
 class Object
 {
 public:
 	virtual ~Object() = default;
-	Object( Texture* _tex, string _name, float x_pos = 0, float y_pos = 0, int _depth = 0, SDL_Rect _clip = { 0, 0, 0, 0 } );
+	Object( Texture* _tex, int _type, float x_pos = 0, float y_pos = 0, int _depth = 0, SDL_Rect _clip = { 0, 0, 0, 0 } );
 	
 	virtual void render(float scaleX = 1.0, float scaleY = 1.0); //may be overridden
 	
@@ -17,7 +20,8 @@ public:
 	float get_y_camera();
 
 	int get_colrad();
-	string get_name();
+	int get_type();
+	unsigned long int get_id();
 	
 	void set_x(float val);
 	void set_y(float val);
@@ -31,9 +35,10 @@ public:
 
 	bool operator<(const Object& other) { return ( depth != other.depth ? depth < other.depth : 
 											(y_pos != other.y_pos ? y_pos < other.y_pos : x_pos < other.x_pos) ); }
-
+	bool operator==(const Object& other) { return id == other.id; }
 protected:
-	const string name;
+	unsigned long int id; // a unique id for this specific object
+	const int type;
 	Texture* texture;
 	
 	//Screen positions in world coordinates and camera coordinates
@@ -46,3 +51,5 @@ protected:
 	
 	SDL_Rect clip;
 };
+
+#endif
