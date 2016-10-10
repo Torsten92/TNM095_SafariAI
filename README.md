@@ -6,7 +6,7 @@ It is a wildlife simulator in which animals try to survive in different environm
 
 The project is developed in C++, using SDL2 (https://www.libsdl.org/) for graphics and input.
 Emscripten (http://kripken.github.io/emscripten-site/) was used as an alternative to compile the application into javascript, making it accessible from the web.
-The animal images have been taken directly from http://pngimg.com/.
+The animal images have been taken from http://pngimg.com/.
 
 
 About:

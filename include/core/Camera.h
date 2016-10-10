@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Globals.h"
-#include "../world/Object.h"
+#include "../world/Animal.h"
 
 #include <vector>
 
@@ -21,9 +21,15 @@ public:
 
 	void reset_bounds();
 
+	//Called once for initialization
+	void set_object_list(vector<Object*>* ol);
+
 	void handle_input();
 	
 private:
+	//camera class handles all keyboard and mouse input
+	SDL_Event e;
+
 	float x_pos, y_pos;
 	float x_min, y_min, x_max, y_max; //we can not move camera outside of these bounds. Decided by animal positions.
 
@@ -32,7 +38,19 @@ private:
 
 	bool mouse_down = false;
 	int mouse_last_x = 0, mouse_last_y = 0;
+	int mouse_down_x = 0, mouse_down_y = 0;
 
 	void set_x(float x);
 	void set_y(float y);
+
+
+	//Camera class also handles selection of objects
+
+	void deselect_object();
+
+	//reference to the currently selected object
+	Animal* selected_object;
+
+	//contains all objects in the scene. Used for finding potentially selected objects.
+	vector<Object*>* object_list;
 };

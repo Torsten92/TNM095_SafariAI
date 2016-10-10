@@ -10,6 +10,7 @@
 #include <float.h> // required for FLT_MAX
 #include <vector>
 #include <functional>
+#include <iomanip>
 
 using namespace utilities;
 
@@ -17,7 +18,7 @@ class Animal : public Object
 {
 public:
 	virtual ~Animal() = default;
-	Animal( Texture* _tex, int _type, function<vector<Object*>(float, float, float)> scan_func, int x_pos = 0, int y_pos = 0, int _depth = 0, SDL_Rect _clip = { 0, 0, 0, 0 },
+	Animal( int _type, Texture* _tex, Texture* _selected_tex, function<vector<Object*>(float, float, float)> scan_func, int x_pos = 0, int y_pos = 0, int _depth = 0, SDL_Rect _clip = { 0, 0, 0, 0 },
 			float _max_age = 1000.0, float _max_speed = 5.0, float stamina = 0.5, float _attack_power = 0.5, float _size = 1.0, float food_value = 0.5 );
 
 	void render(float scaleX = 1.0, float scaleY = 1.0) override;
@@ -33,11 +34,24 @@ public:
 
 	void set_interacting_object(Object* o);
 	void set_dead_tex(Texture* tex);
+	void set_selected_tex(Texture* tex);
 
 	virtual void update() = 0;
+
+	bool is_selected();
+	void set_selected(bool val);
+
+	//speed_dir is the current speed_vector used by the 
+	//flocking algorithm (alignment).
+	vec2 speed_dir = {0.0, 0.0};
+
 protected:
 	RandomGenerator generateRand;
 	CBR* cbr;
+
+	Texture* dead_tex = nullptr;
+	Texture* selected_tex = nullptr;
+
 
 	// Function scan_area returns information of objects in the vicinity of the animal. Decides which 
 	// action to take. Uses ObjectHandler's method get_objects_in_radius to find the actual objects.
@@ -97,7 +111,12 @@ protected:
 	vec2 goal = { 0.0, 0.0 };
 	float state_timer = 0.0;
 	void move(vec2 from, vec2 to, float speed_percent);
-	Texture* dead_tex = nullptr;
+
+	// Display detailed information of the currently selected animal
+	bool selected = false;
+
+	//used for debugging purposes
+	void print_info();
 };
 
 #endif

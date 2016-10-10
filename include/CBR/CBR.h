@@ -36,7 +36,17 @@ class CBR
 {
 public:
 	CBR(Object* _me);
-	int retrieve(WorldState s);
+
+	//retrives a case based on animals current visible worldstate. Herbivores and Carnivores reason differently.
+	int retrieve_herbivore(WorldState s);
+	int retrieve_carnivore(WorldState s);
+
+	//after the retrieval step, a number of cases is passed to the reasoner.
+	int reason_herbivore(vector<Case> cases);
+	int reason_carnivore(vector<Case> cases);
+
+	//instead of making new cases all the time, we may adapt the ones we have to fit new criteria
+	void adapt_case(Case c);
 
 	//Initializes the casebase based on which animal type it is
 	void init(int type);

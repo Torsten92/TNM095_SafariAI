@@ -11,6 +11,11 @@ void Camera::update(const vector<Object*>& background, const vector<Object*>& v,
 	handle_input();
 	set_view(v, screen_w, screen_h);
 	set_background_view(background, screen_w, screen_h);
+
+	//deselect dead objects to prevent pointer errors
+	if(selected_object != nullptr && !selected_object->is_alive()) {
+		selected_object = nullptr;
+	}
 }
 
 void Camera::set_view(const vector<Object*>& v, float screen_w, float screen_h)
@@ -89,6 +94,19 @@ void Camera::set_y(float y)
 	y_pos = min(max(y, y_min), y_max);
 }
 
+void Camera::set_object_list(vector<Object*>* ol)
+{
+	object_list = ol;
+}
+
+void Camera::deselect_object()
+{
+	if(selected_object != nullptr) {
+		selected_object->set_selected(false);
+		selected_object = nullptr;
+	}
+}
+
 void Camera::handle_input()
 {
 	const Uint8 *keyState = SDL_GetKeyboardState(NULL);
@@ -114,8 +132,6 @@ void Camera::handle_input()
 		//y_pos -= dt*300/scale;
 	}
 
-	SDL_Event e;
-	//User requests quit
 	while( SDL_PollEvent( &e ) != 0 )
 	{
 		if( e.type == SDL_QUIT )
@@ -132,6 +148,7 @@ void Camera::handle_input()
 			switch( e.type )
 			{
 				case SDL_MOUSEMOTION:
+				{
 					if(mouse_down)
 					{
 						set_x(x_pos + (mouse_last_x - x)/scale);
@@ -140,21 +157,47 @@ void Camera::handle_input()
 						//y_pos += (mouse_last_y - y)/scale;
 					}
 				break;
-
+				}
 				case SDL_MOUSEBUTTONDOWN:
+				{
 					mouse_down = true;
-				break;
-
+					mouse_down_x = x;
+					mouse_down_y = y;
+					break;
+				}
 				case SDL_MOUSEBUTTONUP:
+				{
 					mouse_down = false;
-				break;
+
+					bool selected = false;
+					for(auto& o : (*object_list)) {
+						if(Animal* a = dynamic_cast<Animal*>(o)) {
+							if(sqrt( pow(x/scale - o->get_x_camera(), 2) + pow(y/scale - o->get_y_camera(), 2) ) < 32) {
+								deselect_object();
+								selected_object = a;
+								selected_object->set_selected(true);
+								selected = true;
+								break;
+							}
+						}
+					}
+					
+					if(!selected && sqrt( pow(x - mouse_down_x, 2) + pow(y - mouse_down_y, 2) ) < 10) {
+						deselect_object();
+					}
+
+					break;
+				}
 
 				case SDL_MOUSEWHEEL:
+				{
 					//Scale scene (positive or negative)
 					if( ( scale < 2.0 && e.wheel.y > 0) || (scale > 0.2 && e.wheel.y < 0) )
 						scale += e.wheel.y > 0 ? 0.1 : -0.1;
 					scale = min(max(scale, 0.2f), 2.0f); //some web-browers use too big scroll step.
-				break;
+					break;
+				}
+				default: break;
 			}
 			mouse_last_x = x;
 			mouse_last_y = y;

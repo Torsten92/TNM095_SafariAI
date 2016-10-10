@@ -1,8 +1,8 @@
 #include "Animal.h"
 
-Animal::Animal(Texture* _tex, int _type, function<vector<Object*>(float, float, float)> scan_func, int x_pos, int y_pos, int _depth, SDL_Rect _clip, 
+Animal::Animal(int _type, Texture* _tex, Texture* _selected_tex, function<vector<Object*>(float, float, float)> scan_func, int x_pos, int y_pos, int _depth, SDL_Rect _clip, 
 	float _max_age, float _max_speed, float stamina, float _attack_power, float _size, float _food_value)
-	: Object(_tex, _type, x_pos, y_pos, _depth, _clip),
+	: Object(_tex, _type, x_pos, y_pos, _depth, _clip), selected_tex{_selected_tex},
 	  max_age{_max_age}, max_speed{_max_speed}, stamina{stamina}, attack_power{_attack_power}, size{_size}, food_value{_food_value}
 {
 	cbr = new CBR(this);
@@ -18,16 +18,10 @@ Animal::Animal(Texture* _tex, int _type, function<vector<Object*>(float, float, 
 		//only update goal if current movement is finished
 		if( (goal.x == 0.0 && goal.y == 0.0) || dist(goal, pos) < 5.0 )
 		{
-			//one in four that animal just stands still
-			if(state_timer == 0.f && generateRand(3) == 0)
-				state_timer = 1.0 + generateRand(20) / 10.0; // 1.0-3.0 seconds
-			else
-			{
-				goal = pos - flocking_dir;
-			}
+			goal = pos - flocking_dir;
 		}
 
-		if(state_timer == 0.0)
+		//if(state_timer == 0.0)
 			move(pos, goal, 0.15);
 	};
 
@@ -50,6 +44,10 @@ Animal::Animal(Texture* _tex, int _type, function<vector<Object*>(float, float, 
 					goal.y = g->get_y();
 				}
 			}
+			else if( dist(get_x(), get_y(), o->get_x(), o->get_y()) < 5.0 && get_id() != o->get_id() ) {
+					pos.x += get_x() - o->get_x();
+					pos.y += get_y() - o->get_y();
+				}
 		}
 
 		if(goal.x == 0.0 && goal.y ==0.0) {
@@ -88,6 +86,9 @@ void Animal::render(float scaleX, float scaleY)
 	
 	if(dead_tex != nullptr)
 		dead_tex->render(true_x * scaleX, true_y * scaleY, &clip, scaleX, scaleY);
+
+	if(selected && selected_tex != nullptr)
+		selected_tex->render(true_x * scaleX, true_y * scaleY, &clip, scaleX, scaleY);
 }
 
 vector<Object*> Animal::scan_area()
@@ -145,12 +146,29 @@ void Animal::set_dead_tex(Texture* tex)
 	dead_tex = tex;
 }
 
+void Animal::set_selected_tex(Texture* tex)
+{
+	selected_tex = tex;
+}
+
+// used by flocking algorithm (dist check to prevent possible division by 0)
+vec2 calc_avoidance(vec2 dist)
+{
+	const int MAX_VALUE = 200;
+	return length(dist) > 1.0 ? MAX_VALUE * normalize(dist) / length(dist) : MAX_VALUE * normalize(dist);
+}
+
 void Animal::update_flocking_behaviour()
 {
+	//weights to be applied to each final value
+	const float w_alignment = 0.02;
+	const float w_cohesion = 0.001;
+	const float w_avoidance = 0.5;
+
 	flocking_dir = {0.0, 0.0};
 
 	int count = 0;
-	float avg_dist = 0.0;
+	vec2 speed_diff = {0.0, 0.0};
 	vec2 avg_pos = {0.0, 0.0};
 	vec2 avoidance_vec = {0.0, 0.0};
 
@@ -159,33 +177,40 @@ void Animal::update_flocking_behaviour()
 	{
 		if(get_type() == o->get_type() && get_id() != o->get_id()) {
 			if( Animal* a = dynamic_cast<Animal*>(o) ) { //should always be true
-				float distance = dist(get_x(), get_y(), a->get_x(), a->get_y());
-				count++;
-				avg_dist += length( vec2(get_x(), get_y()) - vec2(a->get_x(), a->get_y()) );
-				avg_pos.x += a->get_x();
-				avg_pos.y += a->get_y();
-				avoidance_vec += (abs(distance) > 3.0 ? (-300 / distance) : 100) * normalize(get_x() - a->get_x(), get_y() - a->get_y());
+				if(a->is_alive()) {
+					count++;
+					speed_diff += a->speed_dir - speed_dir;
+					avg_pos += vec2(a->get_x(), a->get_y());
+					avoidance_vec += calc_avoidance(vec2(get_x() - a->get_x(), get_y() - a->get_y()));
+				}
 			}
 		}
 	}
 
 	if(count > 0)
 	{
-		avg_dist = avg_dist / count;
+		speed_diff = speed_diff / count;
 		avg_pos = avg_pos / count;
+		avoidance_vec = avoidance_vec / count;
 
-		avoidance_vec = 100 * (length(avg_pos) / avg_dist) * normalize(avoidance_vec);
+		if(selected) {
+			cout << "\n\nFlocking: " << setprecision(5) << length(avg_pos) << ", ";
+		}
 
-		flocking_dir.x = (generateRand(20) / 10.0) * (avg_pos.x + (get_x() - avoidance_vec.x));
-		flocking_dir.y = (generateRand(20) / 10.0) * (avg_pos.y + (get_y() - avoidance_vec.y));
+		flocking_dir += w_alignment * speed_diff + 
+						w_cohesion * (avg_pos - vec2(get_x(), get_y())) + 
+						w_avoidance * avoidance_vec;
 	}
 
-	// add some randomness (affects more when animals are close)
-	// if no other animals is in sight, this will make animal wander aimlessly
-	float radius = 50 + generateRand(150);
+	//add some randomness. If no other animal is in sight, this will make our animal wander aimlessly.
+	float radius = 0.01 + generateRand(10) / 100.0;
 	float angle = generateRand(2*314)/100;
 	vec2 rand_dir = { radius*cos(angle), radius*sin(angle) };
 	flocking_dir += rand_dir;
+
+	if(selected) {
+		cout << length(rand_dir) << "\n\n";
+	}
 
 }
 
@@ -197,6 +222,44 @@ void Animal::move(vec2 from, vec2 to, float speed_percent)
 	vec2 move = speed_percent * max_speed * normalize(from - to);
 	hunger_level -= pow(speed_percent, 2) * dt * 0.1; //moving closer to max_speed drains hunger quicker. (only )
 
-	set_x( from.x - move.x);
-	set_y( from.y - move.y);
+	speed_dir = from - move;
+	set_x( speed_dir.x);
+	set_y( speed_dir.y);
+}
+
+bool Animal::is_selected()
+{
+	return selected;
+}
+
+void Animal::set_selected(bool val)
+{
+	selected = val;
+}
+
+void Animal::print_info()
+{
+	string animal_type;
+
+	switch(get_type()) {
+		case DEER:
+			animal_type = "Deer";
+			break;
+		case WOLF:
+			animal_type = "Wolf";
+			break;
+		case BEAR:
+			animal_type = "Bear";
+			break;
+		default:
+			animal_type = "Unknown";
+			break;
+	}
+
+	cout << "Animal selected: " << animal_type << ". Id: " << get_id() <<
+	"\n[" << fixed <<
+	"\n  hunger:" << setprecision(2) << hunger_level << 
+	"\n  age: " << setprecision(1) << age << 
+	"\n  animals/grass in sight: " << get_objects_in_radius(get_x(), get_y(), scan_radius).size() - 1 << 
+	"\n]\n";
 }

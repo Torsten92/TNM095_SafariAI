@@ -17,7 +17,7 @@ bool Renderer::init()
         return false;
     }
 	//Create window
-	window = SDL_CreateWindow( "Adventure Tales", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 
+	window = SDL_CreateWindow( "Wildlife Simulator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 
 						SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE );
 	
 	if( window == NULL )

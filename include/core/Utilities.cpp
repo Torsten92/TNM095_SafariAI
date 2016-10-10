@@ -22,11 +22,6 @@ namespace utilities
 	{
 		return vec2(x*val, y*val);
 	}
-	
-	const vec2 operator*(float val, const vec2& v)
-	{
-		return vec2(v.x*val, v.y*val);
-	}
 
 	const vec2 vec2::operator-(float val)
 	{
@@ -41,6 +36,18 @@ namespace utilities
 	const vec2 vec2::operator-(const vec2& v)
 	{
 		return vec2(x-v.x, y-v.y);
+	}
+
+
+	const vec2 operator*(float val, const vec2& v)
+	{
+		return vec2(v.x*val, v.y*val);
+	}
+
+
+	const vec2 operator/(const vec2& v, float val)
+	{
+		return vec2(v.x/val, v.y/val);
 	}
 
 	const vec2 operator-(const vec2& v1, const vec2& v2)

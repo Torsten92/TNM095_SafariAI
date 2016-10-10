@@ -13,10 +13,7 @@ class RandomGenerator
 {
 public:
 
-	RandomGenerator() : rng{rd()}
-	{
-		//generator.seed(time(NULL));
-	}
+	RandomGenerator() : rng{rd()} {}
 
 	//Returns a random positive integer value 
 	unsigned long int operator()()
