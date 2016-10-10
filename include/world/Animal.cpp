@@ -12,16 +12,13 @@ Animal::Animal(int _type, Texture* _tex, Texture* _selected_tex, function<vector
 	idle = [&]() {
 		current_action = IDLE; //ugly hack to make sure state and action correspond to each other
 
-		state_timer = max(0.f , state_timer - dt);
 		vec2 pos = { get_x(), get_y() };
 
 		//only update goal if current movement is finished
-		if( (goal.x == 0.0 && goal.y == 0.0) || dist(goal, pos) < 5.0 )
-		{
-			goal = pos - flocking_dir;
+		if( (goal.x == 0.0 && goal.y == 0.0) || dist(goal, pos) < 5.0 ) {
+			goal = pos + flocking_dir;
 		}
 
-		//if(state_timer == 0.0)
 			move(pos, goal, 0.15);
 	};
 
@@ -51,7 +48,7 @@ Animal::Animal(int _type, Texture* _tex, Texture* _selected_tex, function<vector
 		}
 
 		if(goal.x == 0.0 && goal.y ==0.0) {
-			goal = pos - flocking_dir;
+			goal = pos + flocking_dir;
 		}
 
 		move(pos, goal, 0.25);
@@ -154,16 +151,16 @@ void Animal::set_selected_tex(Texture* tex)
 // used by flocking algorithm (dist check to prevent possible division by 0)
 vec2 calc_avoidance(vec2 dist)
 {
-	const int MAX_VALUE = 200;
+	const int MAX_VALUE = 1500;
 	return length(dist) > 1.0 ? MAX_VALUE * normalize(dist) / length(dist) : MAX_VALUE * normalize(dist);
 }
 
 void Animal::update_flocking_behaviour()
 {
 	//weights to be applied to each final value
-	const float w_alignment = 0.02;
-	const float w_cohesion = 0.001;
-	const float w_avoidance = 0.5;
+	const float w_alignment = 0.012;
+	const float w_cohesion = 0.0005;
+	const float w_avoidance = 0.8;
 
 	flocking_dir = {0.0, 0.0};
 
@@ -193,25 +190,16 @@ void Animal::update_flocking_behaviour()
 		avg_pos = avg_pos / count;
 		avoidance_vec = avoidance_vec / count;
 
-		if(selected) {
-			cout << "\n\nFlocking: " << setprecision(5) << length(avg_pos) << ", ";
-		}
-
 		flocking_dir += w_alignment * speed_diff + 
 						w_cohesion * (avg_pos - vec2(get_x(), get_y())) + 
 						w_avoidance * avoidance_vec;
 	}
 
 	//add some randomness. If no other animal is in sight, this will make our animal wander aimlessly.
-	float radius = 0.01 + generateRand(10) / 100.0;
+	float radius = 0.1 + generateRand(10) / 10.0;
 	float angle = generateRand(2*314)/100;
 	vec2 rand_dir = { radius*cos(angle), radius*sin(angle) };
 	flocking_dir += rand_dir;
-
-	if(selected) {
-		cout << length(rand_dir) << "\n\n";
-	}
-
 }
 
 void Animal::move(vec2 from, vec2 to, float speed_percent)
@@ -261,5 +249,6 @@ void Animal::print_info()
 	"\n  hunger:" << setprecision(2) << hunger_level << 
 	"\n  age: " << setprecision(1) << age << 
 	"\n  animals/grass in sight: " << get_objects_in_radius(get_x(), get_y(), scan_radius).size() - 1 << 
+	"\n  position: (" << get_x() << ", " << get_y() << ")" << 
 	"\n]\n";
 }

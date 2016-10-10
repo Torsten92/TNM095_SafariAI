@@ -12,8 +12,8 @@ public:
 	
 	void update(const vector<Object*>& background, const vector<Object*>& v, float screen_w, float screen_h);
 
-	void set_view(const vector<Object*>& v, float screen_w, float screen_h);
-	void set_background_view(const vector<Object*>& v, float screen_w, float screen_h);
+	void set_view(const vector<Object*>& v);
+	void set_background_view(const vector<Object*>& v);
 
 	int get_x_pos();
 	int get_y_pos();
@@ -24,7 +24,7 @@ public:
 	//Called once for initialization
 	void set_object_list(vector<Object*>* ol);
 
-	void handle_input();
+	void handle_input(float screen_w, float screen_h);
 	
 private:
 	//camera class handles all keyboard and mouse input

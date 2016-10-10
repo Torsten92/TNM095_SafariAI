@@ -52,4 +52,7 @@ private:
 		MENU
 	};
 
+	//The maximum amount of objects allowed at once
+	const unsigned MAX_OBJECTS = 1000;
+
 };

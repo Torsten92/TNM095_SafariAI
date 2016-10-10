@@ -8,9 +8,9 @@ Camera::Camera()
 
 void Camera::update(const vector<Object*>& background, const vector<Object*>& v, float screen_w, float screen_h)
 {
-	handle_input();
-	set_view(v, screen_w, screen_h);
-	set_background_view(background, screen_w, screen_h);
+	handle_input(screen_w, screen_h);
+	set_view(v);
+	set_background_view(background);
 
 	//deselect dead objects to prevent pointer errors
 	if(selected_object != nullptr && !selected_object->is_alive()) {
@@ -18,7 +18,7 @@ void Camera::update(const vector<Object*>& background, const vector<Object*>& v,
 	}
 }
 
-void Camera::set_view(const vector<Object*>& v, float screen_w, float screen_h)
+void Camera::set_view(const vector<Object*>& v)
 {
 	reset_bounds(); //reset camera bounds to recalculate values
 	for(auto& o : v)
@@ -41,7 +41,7 @@ void Camera::set_view(const vector<Object*>& v, float screen_w, float screen_h)
 
 //Like set_view(), but moves the tiles so that it looks like map is infinite. For example, if user moves
 //camera left the rightmost tiles of the background will be moved to the left of the leftmost ones.
-void Camera::set_background_view(const vector<Object*>& v, float screen_w, float screen_h)
+void Camera::set_background_view(const vector<Object*>& v)
 {
 	for(auto& o : v)
 	{
@@ -107,7 +107,7 @@ void Camera::deselect_object()
 	}
 }
 
-void Camera::handle_input()
+void Camera::handle_input(float screen_w, float screen_h)
 {
 	const Uint8 *keyState = SDL_GetKeyboardState(NULL);
 
@@ -168,11 +168,11 @@ void Camera::handle_input()
 				case SDL_MOUSEBUTTONUP:
 				{
 					mouse_down = false;
-
+					cout << x << ", " << y << " : " << scale << endl;
 					bool selected = false;
 					for(auto& o : (*object_list)) {
 						if(Animal* a = dynamic_cast<Animal*>(o)) {
-							if(sqrt( pow(x/scale - o->get_x_camera(), 2) + pow(y/scale - o->get_y_camera(), 2) ) < 32) {
+							if(sqrt( pow(x/scale - o->get_x_camera() * screen_w / 800, 2) + pow(y/scale - o->get_y_camera() * screen_h / 600, 2) ) < 32) {
 								deselect_object();
 								selected_object = a;
 								selected_object->set_selected(true);

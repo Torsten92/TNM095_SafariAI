@@ -18,7 +18,6 @@ void Herbivore::update()
 {
 	age += dt;
 	hunger_level -= dt * 0.005;
-	//cout << get_type() << " hunger = " << hunger_level << " alive = " << alive << " food value = " << food_value << " current action = " << current_action << endl;
 	if(hunger_level <= 0.0 || age > max_age)
 	{
 		alive = false;
@@ -67,7 +66,7 @@ void Herbivore::update()
 	//update animal according o its current state
 	current_state();
 
-	if(selected && print_info_timer > 2.0) {
+	if(selected && print_info_timer > 0.1) {
 		print_info();
 		print_info_timer = 0.0;
 	}

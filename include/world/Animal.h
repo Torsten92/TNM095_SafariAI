@@ -109,7 +109,6 @@ protected:
 
 	// State specific variables. Should probably be moved to separate class or something
 	vec2 goal = { 0.0, 0.0 };
-	float state_timer = 0.0;
 	void move(vec2 from, vec2 to, float speed_percent);
 
 	// Display detailed information of the currently selected animal
