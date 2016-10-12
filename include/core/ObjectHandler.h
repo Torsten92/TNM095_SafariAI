@@ -53,6 +53,6 @@ private:
 	};
 
 	//The maximum amount of objects allowed at once
-	const unsigned MAX_OBJECTS = 1000;
+	const unsigned MAX_GRASS = 10000;
 
 };

@@ -11,7 +11,7 @@ public:
 	float get_age();
 	float get_spawner_radius();
 
-	void eat(float amount);
+	void eat_from(float amount);
 	
 	void scan_area();
 

@@ -1,10 +1,10 @@
 cmake_minimum_required (VERSION 2.6)
-project (SafariAI)
+project (WildlifeSimulator)
 
 add_definitions (-std=c++11 -g -Wall)
 
 #Add project files here below main.cpp
-add_executable(SafariAI 
+add_executable(WildlifeSimulator 
 	../include/main_native.cpp
 	../include/core/Resources.cpp
 	../include/core/Renderer.cpp
@@ -21,4 +21,4 @@ add_executable(SafariAI
 	../include/CBR/CBR.cpp
 )
 
-target_link_libraries (SafariAI GL GLU SDL2 SDL2_image)
+target_link_libraries (WildlifeSimulator GL GLU SDL2 SDL2_image)

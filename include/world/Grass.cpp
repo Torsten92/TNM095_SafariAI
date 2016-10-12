@@ -14,7 +14,7 @@ float Grass::get_spawner_radius()
 	return spawner_radius;
 }
 
-void Grass::eat(float amount)
+void Grass::eat_from(float amount)
 {
 	food_value -= amount * dt;
 }

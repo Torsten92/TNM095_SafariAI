@@ -29,6 +29,15 @@ public:
 		return uni(rng);
 	}
 
+	float distribution(float val, float range = 0)
+	{
+		const unsigned vals = 100000;
+		uniform_int_distribution<int> uni( static_cast<int>( val * vals - (range == 0 ? val / 2 * vals : range * vals) ), 
+										   static_cast<int>( val * vals + (range == 0 ? val / 2 * vals : range * vals) )
+		);
+		return uni(rng) / static_cast<float>(vals);
+	}
+
 	//Generates a simple unique id
 	static unsigned long int unique();
 

@@ -101,4 +101,69 @@ namespace utilities
 	{
 		return normalize(v.x, v.y);
 	}
+
+	//Converts a type from int to string
+	std::string convert_type(int type)
+	{
+		std::string res;
+		switch(type) {
+			case GRASS:
+				res = "Grass";
+				break;
+			case DEER:
+				res = "Deer";
+				break;
+			case WOLF:
+				res = "Wolf";
+				break;
+			case BEAR:
+				res = "Bear";
+				break;
+			default:
+				res = "Unknown";
+				break;
+		}
+
+		return res;
+	}
+
+	//Converts an action from int to string
+	std::string convert_action(int action)
+	{
+		std::string res;
+		switch(action) {
+			case IDLE:
+				res = "Idle";
+				break;
+			case FIND_FOOD:
+				res = "Finding food";
+				break;
+			case FIND_MATE:
+				res = "Looking for a mate";
+				break;
+			case FLEE:
+				res = "Fleeing from danger";
+				break;
+			case ATTACK:
+				res = "Attacking prey";
+				break;
+			case FIGHT:
+				res = "Fighting for its life";
+				break;
+			case MATE:
+				res = "Mating";
+				break;
+			case EAT:
+				res = "Eating";
+				break;
+			case DEAD:
+				res = "Dead";
+				break;
+			default:
+				res = "Unknown";
+				break;
+		}
+
+		return res;
+	}
 };

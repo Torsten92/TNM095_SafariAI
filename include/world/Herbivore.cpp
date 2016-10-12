@@ -1,17 +1,58 @@
 #include "Herbivore.h"
 
-Herbivore::Herbivore(int _type, Texture* _tex, Texture* _selected_tex, function<vector<Object*>(float, float, float)> scan_func, int x_pos, int y_pos, int _depth, SDL_Rect _clip, 
-	float _size, float _food_value, float _prefer_company, float _max_age, float _max_speed, float _stamina, float _attack_power)
-	: Animal(_type, _tex, _selected_tex, scan_func, x_pos, y_pos, _depth, _clip, _max_age, _max_speed, _stamina, _attack_power)
+Herbivore::Herbivore(int _type, Texture* _tex, Texture* _selected_tex, function<vector<Object*>(float, float, float)> scan_func, int x_pos, int y_pos, int _depth, SDL_Rect _clip )
+	: Animal(_type, _tex, _selected_tex, scan_func, x_pos, y_pos, _depth, _clip)
 {
-	size = _size;
-	food_value = _food_value;
-	prefer_company = _prefer_company;
-	
+	init(type);
+
+	find_food = [&]() {
+		current_action = FIND_FOOD; //ugly hack to make sure state and action correspond to each other
+
+		vec2 pos = { get_x(), get_y() };
+		goal = {0.0, 0.0};
+		float shortest_dist = FLT_MAX;
+
+		//loop through all nearby objects, searching for animals of the same kind.
+		for(auto& o : get_objects_in_radius(get_x(), get_y(), scan_radius))
+		{
+			if(auto g = dynamic_cast<Grass*>(o)) {
+				if(dist(get_x(), get_y(), g->get_x(), g->get_y()) < shortest_dist) {
+					shortest_dist = dist(get_x(), get_y(), g->get_x(), g->get_y());
+					goal.x = g->get_x();
+					goal.y = g->get_y();
+				}
+			}
+			//Simple collision handling that just separates animals that are too close to each other
+			else if( dist(get_x(), get_y(), o->get_x(), o->get_y()) < 5.0 && get_id() != o->get_id() ) {
+					pos.x += get_x() - o->get_x();
+					pos.y += get_y() - o->get_y();
+				}
+		}
+
+		if(goal.x == 0.0 && goal.y ==0.0) {
+			goal = pos + flocking_dir;
+		}
+
+		move(pos, goal, 0.25);
+	};
+
+	eat = [&]() {
+		current_action = EAT; //ugly hack to make sure state and action correspond to each other
+		
+		if(interacting_object != nullptr) { // interacting_object should be the grass currently eaten
+			if(Grass* g = dynamic_cast<Grass*>(interacting_object)) {
+				g->eat_from(0.1 * size); // large animals eat more, but does not increase hunger_level more.
+				hunger_level = min(hunger_level + 0.1 * dt, 1.0);
+			}
+		}
+		else {
+			current_state = find_food; // find next patch of grass
+		}
+	};
+
+
 	//starting state
 	current_state = find_food;
-
-	cbr->init(DEER);
 }
 
 void Herbivore::update()
@@ -33,8 +74,7 @@ void Herbivore::update()
 	//retrieve new state from case-base (the "fight" and "dead" state can not be entered willingly, they are 
 	//derived from the "attack" state)
 	if(alive) {
-		current_action = cbr->retrieve_herbivore(WorldState(scan_area()));
-
+		current_action = cbr->retrieve(scan_area());
 		switch(current_action) {
 			case IDLE:
 				current_state = idle;
@@ -73,4 +113,26 @@ void Herbivore::update()
 
 	flocking_timer+= dt;
 	print_info_timer+= dt;
+}
+
+void Herbivore::init(int _type)
+{
+	cbr->init(_type);
+	
+	switch(type)
+	{
+		case DEER:
+		{
+			w_alignment =  generateRand.distribution(0.012);
+			w_cohesion = generateRand.distribution(0.0005);
+			w_avoidance = generateRand.distribution(0.6);
+
+			max_age = 1000.0;
+			max_speed = 5.0;
+			attack_power = 0.5;
+			size = 1.0;
+			food_value = 0.5;
+			break;
+		}
+	}
 }

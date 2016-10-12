@@ -40,15 +40,25 @@ void ObjectHandler::set_map(int val)
 				);
 			}
 		for(int i = 0; i < 100; i++) {
-				object_list.push_back( new Herbivore(
-						DEER,
-						resources->get_texture("../assets/deer.png"),
-						resources->get_texture("../assets/selection_circle.png"),
-						bind(&ObjectHandler::get_objects_in_radius, this, _1, _2, _3 ),
-						-500+generateRand(1500),
-						-500+generateRand(1000) )
-				);
-			}
+			object_list.push_back( new Herbivore(
+					DEER,
+					resources->get_texture("../assets/deer.png"),
+					resources->get_texture("../assets/selection_circle.png"),
+					bind(&ObjectHandler::get_objects_in_radius, this, _1, _2, _3 ),
+					-500+generateRand(1500),
+					-500+generateRand(1000) )
+			);
+		}
+		for(int i = 0; i < 10; i++) {
+			object_list.push_back( new Carnivore(
+					WOLF,
+					resources->get_texture("../assets/wolf.png"),
+					resources->get_texture("../assets/selection_circle.png"),
+					bind(&ObjectHandler::get_objects_in_radius, this, _1, _2, _3 ),
+					500+generateRand(1500),
+					500+generateRand(1500) )
+			);
+		}
 	}
 }
 
@@ -177,9 +187,10 @@ void ObjectHandler::update()
 	}
 
 	//Creation of new objects should be handled last
-	if(new_grass.size() && object_list.size() < MAX_OBJECTS) {
-		for(auto g : new_grass)
-		object_list.push_back( new Grass(resources->get_texture("../assets/grass_low.png"), g.x, g.y) );
+	if(new_grass.size() && object_list.size() < MAX_GRASS) {
+		for(auto g : new_grass) {
+			object_list.push_back( new Grass(resources->get_texture("../assets/grass_low.png"), g.x, g.y) );
+		}
 	}
 }
 

@@ -168,7 +168,6 @@ void Camera::handle_input(float screen_w, float screen_h)
 				case SDL_MOUSEBUTTONUP:
 				{
 					mouse_down = false;
-					cout << x << ", " << y << " : " << scale << endl;
 					bool selected = false;
 					for(auto& o : (*object_list)) {
 						if(Animal* a = dynamic_cast<Animal*>(o)) {
@@ -192,9 +191,9 @@ void Camera::handle_input(float screen_w, float screen_h)
 				case SDL_MOUSEWHEEL:
 				{
 					//Scale scene (positive or negative)
-					if( ( scale < 2.0 && e.wheel.y > 0) || (scale > 0.2 && e.wheel.y < 0) )
+					if( ( scale < 2.0 && e.wheel.y > 0) || (scale > 0.175 && e.wheel.y < 0) )
 						scale += e.wheel.y > 0 ? 0.1 : -0.1;
-					scale = min(max(scale, 0.2f), 2.0f); //some web-browers use too big scroll step.
+					scale = min(max(scale, 0.175f), 2.0f); //some web-browers use too big scroll step.
 					break;
 				}
 				default: break;

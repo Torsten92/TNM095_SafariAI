@@ -1,9 +1,7 @@
 #include "Animal.h"
 
-Animal::Animal(int _type, Texture* _tex, Texture* _selected_tex, function<vector<Object*>(float, float, float)> scan_func, int x_pos, int y_pos, int _depth, SDL_Rect _clip, 
-	float _max_age, float _max_speed, float stamina, float _attack_power, float _size, float _food_value)
-	: Object(_tex, _type, x_pos, y_pos, _depth, _clip), selected_tex{_selected_tex},
-	  max_age{_max_age}, max_speed{_max_speed}, stamina{stamina}, attack_power{_attack_power}, size{_size}, food_value{_food_value}
+Animal::Animal(int _type, Texture* _tex, Texture* _selected_tex, function<vector<Object*>(float, float, float)> scan_func, int x_pos, int y_pos, int _depth, SDL_Rect _clip )
+	: Object(_tex, _type, x_pos, y_pos, _depth, _clip), selected_tex{_selected_tex}
 {
 	cbr = new CBR(this);
 	get_objects_in_radius = scan_func;
@@ -22,49 +20,18 @@ Animal::Animal(int _type, Texture* _tex, Texture* _selected_tex, function<vector
 			move(pos, goal, 0.15);
 	};
 
-	//NOTE: Hardcoded for herbivores right now!
-	//initialize the find_food state
+	attack = [&]() {
+		if(interacting_object != nullptr) { // interacting_object should be the animal we are attacking
+
+		}
+	};
+
 	find_food = [&]() {
-		current_action = FIND_FOOD; //ugly hack to make sure state and action correspond to each other
-
-		vec2 pos = { get_x(), get_y() };
-		goal = {0.0, 0.0};
-		float shortest_dist = FLT_MAX;
-
-		//loop through all nearby objects, searching for animals of the same kind.
-		for(auto& o : get_objects_in_radius(get_x(), get_y(), scan_radius))
-		{
-			if(auto g = dynamic_cast<Grass*>(o)) {
-				if(dist(get_x(), get_y(), g->get_x(), g->get_y()) < shortest_dist) {
-					shortest_dist = dist(get_x(), get_y(), g->get_x(), g->get_y());
-					goal.x = g->get_x();
-					goal.y = g->get_y();
-				}
-			}
-			else if( dist(get_x(), get_y(), o->get_x(), o->get_y()) < 5.0 && get_id() != o->get_id() ) {
-					pos.x += get_x() - o->get_x();
-					pos.y += get_y() - o->get_y();
-				}
-		}
-
-		if(goal.x == 0.0 && goal.y ==0.0) {
-			goal = pos + flocking_dir;
-		}
-
-		move(pos, goal, 0.25);
+		//Overridden by subclasses
 	};
 
 	eat = [&]() {
-		current_action = EAT; //ugly hack to make sure state and action correspond to each other
-		
-		if(interacting_object != nullptr) { // interacting_object should be the grass currently eaten
-			Grass* g = dynamic_cast<Grass*>(interacting_object);
-			g->eat(0.1 * size); // large animals eat more, but does not increase hunger_level more.
-			hunger_level = min(hunger_level + 0.1 * dt, 1.0);
-		}
-		else {
-			current_state = find_food; // find next patch of grass
-		}
+		//Overridden by subclasses
 	};
 
 	//initialize the dead state
@@ -113,6 +80,11 @@ float Animal::get_speed()
 	return current_speed;
 }
 
+float Animal::get_max_speed()
+{
+	return max_speed;
+}
+
 float Animal::get_hunger()
 {
 	return hunger_level;
@@ -138,6 +110,17 @@ void Animal::set_interacting_object(Object* o)
 	interacting_object = o;
 }
 
+bool Animal::is_selected()
+{
+	return selected;
+}
+
+void Animal::set_selected(bool val)
+{
+	selected = val;
+	cout << "selecting animal " << convert_type(type) << " : " << val;
+}
+
 void Animal::set_dead_tex(Texture* tex)
 {
 	dead_tex = tex;
@@ -148,7 +131,12 @@ void Animal::set_selected_tex(Texture* tex)
 	selected_tex = tex;
 }
 
-// used by flocking algorithm (dist check to prevent possible division by 0)
+void Animal::eat_from(float amount)
+{
+	food_value -= amount * dt;
+}
+
+// used by flocking algorithm (dist length check to prevent possible division by 0)
 vec2 calc_avoidance(vec2 dist)
 {
 	const int MAX_VALUE = 1500;
@@ -158,9 +146,9 @@ vec2 calc_avoidance(vec2 dist)
 void Animal::update_flocking_behaviour()
 {
 	//weights to be applied to each final value
-	const float w_alignment = 0.012;
-	const float w_cohesion = 0.0005;
-	const float w_avoidance = 0.8;
+	//const float w_alignment = 0.012;
+	//const float w_cohesion = 0.0005;
+	//const float w_avoidance = 0.8;
 
 	flocking_dir = {0.0, 0.0};
 
@@ -215,40 +203,27 @@ void Animal::move(vec2 from, vec2 to, float speed_percent)
 	set_y( speed_dir.y);
 }
 
-bool Animal::is_selected()
-{
-	return selected;
-}
-
-void Animal::set_selected(bool val)
-{
-	selected = val;
-}
-
 void Animal::print_info()
 {
-	string animal_type;
+	string animal_type = convert_type(type);
+	string action_taken = convert_action(current_action);
+	string interacting_object_str = "";
 
-	switch(get_type()) {
-		case DEER:
-			animal_type = "Deer";
-			break;
-		case WOLF:
-			animal_type = "Wolf";
-			break;
-		case BEAR:
-			animal_type = "Bear";
-			break;
-		default:
-			animal_type = "Unknown";
-			break;
-	}
+	if(interacting_object != nullptr)
+		interacting_object_str = convert_type(interacting_object->get_type());
+	else
+		interacting_object_str = "-";
 
-	cout << "Animal selected: " << animal_type << ". Id: " << get_id() <<
+	cout << "Animal selected: " << animal_type << " (id: " << get_id() << ")" <<
 	"\n[" << fixed <<
-	"\n  hunger:" << setprecision(2) << hunger_level << 
-	"\n  age: " << setprecision(1) << age << 
-	"\n  animals/grass in sight: " << get_objects_in_radius(get_x(), get_y(), scan_radius).size() - 1 << 
-	"\n  position: (" << get_x() << ", " << get_y() << ")" << 
+	"\n  current action: " << action_taken <<
+	"\n  " << (alive ? "hunger:" : "foodvalue left: ") << setprecision(2) << (alive ? hunger_level : food_value) <<
+	"\n  age: " << setprecision(1) << age <<
+	"\n  size: " << setprecision(2) << size <<
+	"\n  current speed: " << setprecision(2) << current_speed << " (" << setprecision(0) << (current_speed / max_speed * 100) << "%)" <<
+	"\n  animals/grass in sight: " << get_objects_in_radius(get_x(), get_y(), scan_radius).size() - 1 <<
+	"\n  position: (" << get_x() << ", " << get_y() << ")" <<
+	"\n  interacting with: " << interacting_object_str <<
+	"\n  flocking weights: " << setprecision(4) << w_cohesion << ", " << w_alignment << ", " << w_avoidance << " (cohesion, alignment, avoidance)" <<
 	"\n]\n";
 }
