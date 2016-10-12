@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/native
+CMAKE_SOURCE_DIR = /media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/native
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/native
+CMAKE_BINARY_DIR = /media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/native
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/native/CMakeFiles /media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/native/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/native/CMakeFiles /media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/native/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/native/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/native/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,383 +123,383 @@ WildlifeSimulator/fast:
 	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/build
 .PHONY : WildlifeSimulator/fast
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.o
-
-# target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.o
-
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.i
-
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.i
-
-# target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.i
-
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.s
-
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.s
-
-# target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.cpp.s
-
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.o
-
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.cpp.s
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.o: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.o
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.o
 
 # target to build an object file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.o:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.o
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.o
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.o
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.i: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.i
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.i
 
 # target to preprocess a source file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.i:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.i
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.i
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.i
 
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.s: media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.s
 
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.s
 
 # target to generate assembly for a file
-media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.s:
-	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.s
-.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.cpp.s
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.cpp.s
+
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.o: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.o
+
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.o
+
+# target to build an object file
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.o:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.o
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.o
+
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.i: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.i
+
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.i
+
+# target to preprocess a source file
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.i:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.i
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.i
+
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.s: media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.s
+
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.s
+
+# target to generate assembly for a file
+media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.s:
+	$(MAKE) -f CMakeFiles/WildlifeSimulator.dir/build.make CMakeFiles/WildlifeSimulator.dir/media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.s
+.PHONY : media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.cpp.s
 
 # Help Target
 help:
@@ -510,48 +510,48 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... WildlifeSimulator"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/CBR/CBR.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Camera.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/ObjectHandler.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/RandomGenerator.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Renderer.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Resources.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Texture.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/core/Utilities.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/main_native.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Animal.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Carnivore.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Grass.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Herbivore.s"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.o"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.i"
-	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_SafariAI/include/world/Object.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/CBR/CBR.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Camera.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/ObjectHandler.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/RandomGenerator.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Renderer.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Resources.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Texture.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/core/Utilities.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/main_native.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Animal.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Carnivore.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Grass.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Herbivore.s"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.o"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.i"
+	@echo "... media/torsten/250GB/Programmering/TNM095/TNM095_WildlifeSimulator/include/world/Object.s"
 .PHONY : help
 
 
