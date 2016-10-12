@@ -7,7 +7,6 @@ Herbivore::Herbivore(int _type, Texture* _tex, Texture* _selected_tex, function<
 
 	find_food = [&]() {
 		current_action = FIND_FOOD; //ugly hack to make sure state and action correspond to each other
-
 		vec2 pos = { get_x(), get_y() };
 		goal = {0.0, 0.0};
 		float shortest_dist = FLT_MAX;
@@ -22,11 +21,6 @@ Herbivore::Herbivore(int _type, Texture* _tex, Texture* _selected_tex, function<
 					goal.y = g->get_y();
 				}
 			}
-			//Simple collision handling that just separates animals that are too close to each other
-			else if( dist(get_x(), get_y(), o->get_x(), o->get_y()) < 5.0 && get_id() != o->get_id() ) {
-					pos.x += get_x() - o->get_x();
-					pos.y += get_y() - o->get_y();
-				}
 		}
 
 		if(goal.x == 0.0 && goal.y ==0.0) {
@@ -43,6 +37,7 @@ Herbivore::Herbivore(int _type, Texture* _tex, Texture* _selected_tex, function<
 			if(Grass* g = dynamic_cast<Grass*>(interacting_object)) {
 				g->eat_from(0.1 * size); // large animals eat more, but does not increase hunger_level more.
 				hunger_level = min(hunger_level + 0.1 * dt, 1.0);
+				grow();
 			}
 		}
 		else {
@@ -123,16 +118,18 @@ void Herbivore::init(int _type)
 	{
 		case DEER:
 		{
-			w_alignment =  generateRand.distribution(0.012);
-			w_cohesion = generateRand.distribution(0.0005);
+			w_alignment =  generateRand.distribution(0.015);
+			w_cohesion = generateRand.distribution(0.02); // 0.0005
 			w_avoidance = generateRand.distribution(0.6);
 
+			scan_radius = 500.0;
 			max_age = 1000.0;
-			max_speed = 5.0;
+			max_speed = 4.0;
 			attack_power = 0.5;
 			size = 1.0;
-			food_value = 0.5;
 			break;
 		}
 	}
+
+	food_value = size / 2.0;
 }

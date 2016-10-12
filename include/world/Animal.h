@@ -44,6 +44,13 @@ public:
 	//Called when another animal is eating this animal
 	void eat_from(float amount);
 
+	//Resolves a fight between this animal and its interacting object
+	void resolve_fight();
+	void take_damage(float val);
+	float get_fight_value();
+
+	void resolve_collisions();
+
 	//speed_dir is the current speed_vector used by the 
 	//flocking algorithm (alignment).
 	vec2 speed_dir = {0.0, 0.0};
@@ -78,7 +85,7 @@ protected:
 
 	// Constant variables initialized on creation. (most are actually not constant  because of 
 	// current alternative implementation, of which I am too lazy to fix)
-	const float scan_radius = 500.0; //how far the animal can see
+	float scan_radius = 500.0; //how far the animal can see
 	float max_age; //age at which the animal dies
 	float max_speed; //maximum running speed
 	float stamina; //determines how fast hunger_level decreases in special draining states
@@ -90,11 +97,13 @@ protected:
 	bool alive = true; //becomes false when animal dies
 	float current_speed = 0.0; //current running speed
 	float size; //the size of the animal
-	float food_value; //amount of hunger animal restores when eaten
+	float food_value; //amount of hunger animal restores when eaten (currently always equal to size/2)
 	float prefer_company; //higher means more likely to flock with others of its kind
-	
+
 
 	Object* interacting_object = nullptr;	//used by some states that require another object to interact with
+
+	void grow();
 
 	// Some animals like to stay in a group. flocking_dir is set by update_flocking_dir() and represents 
 	// an adjusted movement direction towards the group.
@@ -103,16 +112,6 @@ protected:
 	float w_cohesion = 0.0005;
 	float w_avoidance = 0.8;
 	void update_flocking_behaviour();
-
-	// Used by the Case-based Reasoning machine to determine which action to take when in contact with another animal
-	struct Species
-	{
-		unsigned int type;
-		float danger_level;
-		float hunt_level;
-	};
-
-	vector<Species> discovered_species;
 
 	// State specific variables. Should probably be moved to separate class or something
 	vec2 goal = { 0.0, 0.0 };

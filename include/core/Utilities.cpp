@@ -102,6 +102,21 @@ namespace utilities
 		return normalize(v.x, v.y);
 	}
 
+	const float dot(const vec2& v1, const vec2& v2)
+	{
+		return v1.x * v2.x + v1.y * v2.y;
+	}
+
+	const float angle_between(const vec2& v1, const vec2& v2)
+	{
+		return acos( dot(v1, v2) / (length(v1) * length(v2)) );
+	}
+
+	const vec2 rotate(const vec2& v, float angle)
+	{
+		return vec2( v.x * cos(angle) - v.y * sin(angle), v.x * sin(angle) + v.y * cos(angle) );
+	}
+
 	//Converts a type from int to string
 	std::string convert_type(int type)
 	{

@@ -4,12 +4,13 @@ Carnivore::Carnivore(int _type, Texture* _tex, Texture* _selected_tex, function<
 	: Animal(_type, _tex, _selected_tex, scan_func, x_pos, y_pos, _depth, _clip)
 {
 	init(type);
-
+	goal = { get_x(), get_y() };
+	//speed_dir = {0.0, -1.0};
+	
 	find_food = [&]() {
 		current_action = FIND_FOOD; //ugly hack to make sure state and action correspond to each other
 
 		vec2 pos = { get_x(), get_y() };
-		goal = {0.0, 0.0};
 		float shortest_dist = FLT_MAX;
 		
 		//loop through all nearby objects, searching for animals of the same kind.
@@ -21,20 +22,15 @@ Carnivore::Carnivore(int _type, Texture* _tex, Texture* _selected_tex, function<
 					goal.x = a->get_x();
 					goal.y = a->get_y();
 				}
-				//Simple collision handling that just separates animals that are too close to each other
-				if( dist(get_x(), get_y(), o->get_x(), o->get_y()) < 5.0 && get_id() != o->get_id() ) {
-					pos.x += get_x() - o->get_x();
-					pos.y += get_y() - o->get_y();
-				}
 			}
 		}
 
-		if(goal.x == 0.0 && goal.y ==0.0) {
-			goal = pos + flocking_dir;
+		if(dist(goal, pos) < 10.0) {
+			//cout << length(flocking_dir) << " : " << generateRand.distribution(0.0, M_PI/4) << endl;
+			goal = pos + flocking_dir + 10.0 * rotate(speed_dir, generateRand.distribution(0.0, M_PI/8));
 		}
 
-		goal = pos + flocking_dir;
-		move(pos, goal, 0.75);
+		move(pos, goal, 0.25);
 	};
 
 	eat = [&]() {
@@ -44,6 +40,7 @@ Carnivore::Carnivore(int _type, Texture* _tex, Texture* _selected_tex, function<
 			if(Animal* a = dynamic_cast<Animal*>(interacting_object)) {
 				a->eat_from(0.1 * size); // large animals eat more, but does not increase hunger_level more.
 				hunger_level = min(hunger_level + 0.1 * dt, 1.0);
+				grow();
 			}
 		}
 		else {
@@ -93,6 +90,9 @@ void Carnivore::update()
 			case ATTACK:
 				current_state = attack;
 				break;	
+			case FIGHT:
+				current_state = fight;
+				break;	
 			case EAT:
 				current_state = eat;
 				break;
@@ -129,12 +129,14 @@ void Carnivore::init(int _type)
 			w_cohesion = generateRand.distribution(0.0005);
 			w_avoidance = generateRand.distribution(0.9);
 
+			scan_radius = 600.0;
 			max_age = 1000.0;
 			max_speed = 5.0;
-			attack_power = 0.5;
-			size = 1.0;
-			food_value = 0.5;
+			attack_power = 2.5;
+			size = 0.9;
 			break;
 		}
 	}
+
+	food_value = size / 2.0;
 }

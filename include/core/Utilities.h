@@ -35,6 +35,9 @@ namespace utilities
 	const float length(const vec2& v);
 	const vec2 normalize(const float x, const float y);
 	const vec2 normalize(const vec2& v);
+	const float dot(const vec2& v1, const vec2& v2);
+	const float angle_between(const vec2& v1, const vec2& v2);
+	const vec2 rotate(const vec2& v, float angle);
 
 	std::string convert_type(int type);
 	std::string convert_action(int action);

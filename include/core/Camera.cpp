@@ -13,7 +13,7 @@ void Camera::update(const vector<Object*>& background, const vector<Object*>& v,
 	set_background_view(background);
 
 	//deselect dead objects to prevent pointer errors
-	if(selected_object != nullptr && !selected_object->is_alive()) {
+	if(selected_object != nullptr && !selected_object->is_alive() && selected_object->get_food_value() < 0.03) {
 		selected_object = nullptr;
 	}
 }
@@ -107,6 +107,11 @@ void Camera::deselect_object()
 	}
 }
 
+Animal* Camera::get_selected_object()
+{
+	return selected_object;
+}
+
 void Camera::handle_input(float screen_w, float screen_h)
 {
 	const Uint8 *keyState = SDL_GetKeyboardState(NULL);
@@ -171,7 +176,7 @@ void Camera::handle_input(float screen_w, float screen_h)
 					bool selected = false;
 					for(auto& o : (*object_list)) {
 						if(Animal* a = dynamic_cast<Animal*>(o)) {
-							if(sqrt( pow(x/scale - o->get_x_camera() * screen_w / 800, 2) + pow(y/scale - o->get_y_camera() * screen_h / 600, 2) ) < 32) {
+							if(sqrt( pow(x/scale - o->get_x_camera() * screen_w / 800, 2) + pow(y/scale - o->get_y_camera() * screen_h / 600, 2) ) < 32.0 * a->get_size()) {
 								deselect_object();
 								selected_object = a;
 								selected_object->set_selected(true);

@@ -1,6 +1,6 @@
 #include "CBR.h"
 
-Case::Case(float m_s, float m_h, int o_t, float o_si, float o_sp, float d, int res_a, float res_s, Object* res_int_o)
+Case::Case(float m_s, float m_h, int o_t, float o_si, float o_sp, float d, int res_a, float res_s)
 {
 	my_size = m_s;
 	my_hunger = m_h;
@@ -11,7 +11,7 @@ Case::Case(float m_s, float m_h, int o_t, float o_si, float o_sp, float d, int r
 
 	resulting_action = res_a;
 	resulting_speed = res_s;
-	resulting_interacting_object = res_int_o;
+	resulting_interacting_object = nullptr;
 }
 
 CBR::CBR(Object* _me)
@@ -26,19 +26,21 @@ int CBR::retrieve(vector<Object*> nearby_animals)
 	vector<Case> similar_cases;
 
 	//Grass eating is still hardcoded
-	Object* interacting_object = me->get_interacting_object();
+	Object* eating_object = nullptr;
+	if(dynamic_cast<Grass*>(me->get_interacting_object())) {
+		eating_object = me->get_interacting_object();
+	}
+
 
 	for(auto o : nearby_animals)
 	{
 		//Check for possible grass to eat
-		if(i_am_herbivore && o->get_type() == GRASS && dist(me->get_x(), me->get_y(), o->get_x(), o->get_y()) < 10.0) {
-			interacting_object = o;
-		}
-		else if(Animal* a = dynamic_cast<Animal*>(o)) {
-			if(!a->is_alive() && dist(me->get_x(), me->get_y(), o->get_x(), o->get_y()) < 10.0) {
-				interacting_object = o;
+		if(i_am_herbivore) {
+			if(o->get_type() == GRASS && dist(me->get_x(), me->get_y(), o->get_x(), o->get_y()) < 32.0) {
+				eating_object = o;
 			}
-			
+		}
+		if(Animal* a = dynamic_cast<Animal*>(o)) {
 			if(a->get_type() == me->get_type()) continue; // should not exist, but skip cases with the same type
 			for(auto& c : cases) {
 				float w_type = c.other_type == a->get_type() ? 0.5 : 0.0;
@@ -47,6 +49,7 @@ int CBR::retrieve(vector<Object*> nearby_animals)
 				float w_size = c.other_size != -1 ? (1 - min(abs(c.other_size - a->get_size()) / 3.0, 1.0)) * 0.1 : 0.1;
 				
 				if(w_type + w_speed + w_dist + w_size > 0.4) {
+					c.resulting_interacting_object = o; // the animal this case currrently points to (not part of the case per se)
 					similar_cases.push_back(c);
 				}
 			}
@@ -58,8 +61,8 @@ int CBR::retrieve(vector<Object*> nearby_animals)
 		if(me->get_hunger() > 0.8 && me->get_interacting_object() == nullptr) {
 			return IDLE;
 		}
-		else if(interacting_object != nullptr) {
-			me->set_interacting_object(interacting_object);
+		else if(eating_object != nullptr) {
+			me->set_interacting_object(eating_object);
 			return EAT;
 		}
 		else {
@@ -75,7 +78,31 @@ int CBR::retrieve(vector<Object*> nearby_animals)
 // case, adding it to the case-base, and then returning its solution.
 int CBR::reason_herbivore(vector<Case> cases)
 {
-	return DEAD;
+	auto me = dynamic_cast<Animal*>(me_obj);
+	Case* res = nullptr;
+	float shortest_dist = FLT_MAX; // somehow this should be change to represent top priority case
+	
+	for(auto& c : cases) {
+		if(auto other = dynamic_cast<Animal*>(c.resulting_interacting_object)) {
+			//cout << "reasoning about case: " << c.other_type << " - " << c.other_speed << ", " << c.other_size << endl;
+			if(c.resulting_action == FLEE && other->is_alive() && dist(me->get_x(), me->get_y(), other->get_x(), other->get_y()) < shortest_dist) {
+				shortest_dist = dist(me->get_x(), me->get_y(), other->get_x(), other->get_y());
+				res = &c;
+				me->set_interacting_object(other);
+			}
+		}
+	}
+
+	if(res != nullptr) {
+		if(res->resulting_action == FLEE) {
+			return FLEE;
+		}
+
+		return res->resulting_action;
+	}
+
+	//in case we didn't find any cases (shouldn't happen)
+	return IDLE;
 }
 
 // adapt the cases to either use a modified version of one of these cases, or make a completely new 
@@ -84,10 +111,34 @@ int CBR::reason_carnivore(vector<Case> cases)
 {
 	auto me = dynamic_cast<Animal*>(me_obj);
 	Case* res = nullptr;
+	float shortest_dist = FLT_MAX; // somehow this should be change to represent top priority case
+
 	for(auto& c : cases) {
-		//cout << "reasoning about case: " << c.other_type << " - " << c.other_speed << ", " << c.other_size << endl;
+		if(auto other = dynamic_cast<Animal*>(c.resulting_interacting_object)) {
+			//cout << "reasoning about case: " << c.other_type << " - " << c.other_speed << ", " << c.other_size << endl;
+			if(c.resulting_action == ATTACK && dist(me->get_x(), me->get_y(), other->get_x(), other->get_y()) < shortest_dist) {
+				shortest_dist = dist(me->get_x(), me->get_y(), other->get_x(), other->get_y());
+				res = &c;
+				me->set_interacting_object(other);
+			}
+		}
 	}
 
+	if(res != nullptr) {
+		if(res->resulting_action == ATTACK && shortest_dist < 32.0) {
+			auto other = dynamic_cast<Animal*>(res->resulting_interacting_object);
+			if(other->is_alive()) {
+				return FIGHT;
+			}
+			else {
+				return EAT;
+			}
+		}
+
+		return res->resulting_action;
+	}
+	
+	//in case we didn't find any cases (shouldn't happen)
 	return IDLE;
 }
 

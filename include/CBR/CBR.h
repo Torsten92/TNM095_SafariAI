@@ -33,7 +33,7 @@ public:
 struct Case
 {
 	//resulting speed s not fixed at creation, but rather adapted to the situation
-	Case(float m_s, float m_h, int o_t, float o_si, float o_sp, float d, int res_a, float res_s = -1, Object* res_int_o = nullptr);
+	Case(float m_s, float m_h, int o_t, float o_si, float o_sp, float d, int res_a, float res_s = -1);
 	
 	//we want to remember how hungry- and how big we were at the time of this case to compare
 	float my_size;

@@ -204,6 +204,10 @@ vector<Object*>::iterator ObjectHandler::removeObject(vector<Object*>::iterator 
 		}
 	}
 
+	if(camera->get_selected_object() != nullptr && *(camera->get_selected_object()) == (**it) ) {
+		camera->deselect_object();
+	}
+
 	//cout << "deleting object: " << (*it)->get_id() << endl;
 	delete *it;
 	it = object_list.erase(it);

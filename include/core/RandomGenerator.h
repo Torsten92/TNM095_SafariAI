@@ -29,8 +29,10 @@ public:
 		return uni(rng);
 	}
 
+	//Returns a random floating point value in the normal distribution specified by val and range
 	float distribution(float val, float range = 0)
 	{
+		range = range < 0.0 ? -range : range; //convert negative numbers
 		const unsigned vals = 100000;
 		uniform_int_distribution<int> uni( static_cast<int>( val * vals - (range == 0 ? val / 2 * vals : range * vals) ), 
 										   static_cast<int>( val * vals + (range == 0 ? val / 2 * vals : range * vals) )

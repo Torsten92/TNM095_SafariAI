@@ -25,6 +25,9 @@ public:
 	void set_object_list(vector<Object*>* ol);
 
 	void handle_input(float screen_w, float screen_h);
+
+	void deselect_object();
+	Animal* get_selected_object();
 	
 private:
 	//camera class handles all keyboard and mouse input
@@ -45,8 +48,6 @@ private:
 
 
 	//Camera class also handles selection of objects
-
-	void deselect_object();
 
 	//reference to the currently selected object
 	Animal* selected_object;
