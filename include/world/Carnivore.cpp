@@ -30,7 +30,7 @@ Carnivore::Carnivore(int _type, Texture* _tex, Texture* _selected_tex, function<
 			goal = pos + flocking_dir + 10.0 * rotate(speed_dir, generateRand.distribution(0.0, M_PI/8));
 		}
 
-		move(pos, goal, 0.25);
+		move(pos, goal, (type == WOLF ? 0.25 : 0.2));
 	};
 
 	eat = [&]() {
@@ -131,9 +131,25 @@ void Carnivore::init(int _type)
 
 			scan_radius = 600.0;
 			max_age = 1000.0;
-			max_speed = 5.0;
+			max_speed = generateRand.distribution(7.0, 1.5);
 			attack_power = 2.5;
+			fear_factor = generateRand.distribution(0.6, 0.15);
 			size = 0.9;
+			break;
+		}
+
+		case BEAR:
+		{
+			w_alignment =  generateRand.distribution(0.012);
+			w_cohesion = generateRand.distribution(0.0004);
+			w_avoidance = generateRand.distribution(0.6);
+
+			scan_radius = 500.0;
+			max_age = 1000.0;
+			max_speed = generateRand.distribution(5.0, 1.0);
+			attack_power = 3.5;
+			fear_factor = generateRand.distribution(0.4, 0.15);
+			size = 1.4;
 			break;
 		}
 	}

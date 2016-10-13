@@ -29,7 +29,7 @@ Animal::Animal(int _type, Texture* _tex, Texture* _selected_tex, function<vector
 			goal.x = interacting_object->get_x();
 			goal.y = interacting_object->get_y();
 
-			move(pos, goal, 0.75);
+			move(pos, goal, case_speed);
 		}
 		else {
 			current_state = idle; // force state change
@@ -45,7 +45,7 @@ Animal::Animal(int _type, Texture* _tex, Texture* _selected_tex, function<vector
 			vec2 danger { interacting_object->get_x(), interacting_object->get_y() };
 			goal = pos + normalize(pos - danger);
 
-			move(pos, goal, 0.6);
+			move(pos, goal, case_speed);
 		}
 		else {
 			current_state = idle; // force state change
@@ -95,8 +95,10 @@ void Animal::render(float scaleX, float scaleY)
 	if(dead_tex != nullptr)
 		dead_tex->render(true_x * scaleX, true_y * scaleY, &clip, scaleX * size, scaleY * size);
 
-	if(selected && selected_tex != nullptr)
+	if(selected && selected_tex != nullptr) {
 		selected_tex->render(true_x * scaleX, true_y * scaleY, &clip, scaleX * size, scaleY * size);
+		selected_tex->render((true_x + 32 - scan_radius) * scaleX, (true_y + 32 - scan_radius) * scaleY, &clip, scaleX * scan_radius / 32.0, scaleY * scan_radius / 32.0);
+	}
 }
 
 vector<Object*> Animal::scan_area()
@@ -132,6 +134,11 @@ float Animal::get_max_speed()
 float Animal::get_hunger()
 {
 	return hunger_level;
+}
+
+float Animal::get_fear_factor()
+{
+	return fear_factor;
 }
 
 float Animal::get_fight_value()
@@ -213,6 +220,12 @@ void Animal::resolve_collisions()
 	}
 }
 
+
+void Animal::set_case_speed(float val)
+{
+	case_speed = val;
+}
+
 void Animal::grow()
 {
 	size += (1 / pow(size, 1.5)) * 0.04 * dt;
@@ -276,9 +289,9 @@ void Animal::update_flocking_behaviour()
 void Animal::move(vec2 from, vec2 to, float speed_percent)
 {
 	speed_percent = min(max(speed_percent, 0.0f), 1.0f); //limit values
-	current_speed = speed_percent * max_speed;
+	current_speed = speed_percent * max_speed * size;
 	//vec2 move = speed_percent * max_speed * (normalize(from - to));
-	vec2 move = speed_percent * max_speed * normalize(to - from);
+	vec2 move = current_speed * normalize(to - from);
 	hunger_level -= pow(speed_percent, 2) * dt * 0.1; //moving closer to max_speed drains hunger quicker. (only )
 
 	speed_dir = move;
@@ -286,20 +299,7 @@ void Animal::move(vec2 from, vec2 to, float speed_percent)
 	set_y( get_y() + speed_dir.y);
 	resolve_collisions();
 }
-/*
-void Animal::move(vec2 from, vec2 to, float speed_percent)
-{
-	speed_percent = min(max(speed_percent, 0.0f), 1.0f); //limit values
-	current_speed = speed_percent * max_speed;
-	//vec2 move = speed_percent * max_speed * (normalize(from - to));
-	vec2 move = speed_percent * max_speed * normalize(from - to);
-	hunger_level -= pow(speed_percent, 2) * dt * 0.1; //moving closer to max_speed drains hunger quicker. (only )
 
-	speed_dir = from - move;
-	set_x( speed_dir.x);
-	set_y( speed_dir.y);
-}
-*/
 void Animal::print_info()
 {
 	string animal_type = convert_type(type);
@@ -326,7 +326,7 @@ void Animal::print_info()
 	"\n  " << (alive ? "hunger:" : "foodvalue left: ") << setprecision(2) << (alive ? hunger_level : food_value) <<
 	"\n  age: " << setprecision(1) << age <<
 	"\n  size: " << setprecision(2) << size <<
-	"\n  current speed: " << setprecision(2) << current_speed << " (" << setprecision(0) << (current_speed / max_speed * 100) << "%)" <<
+	"\n  current speed: " << setprecision(2) << current_speed << " (" << setprecision(0) << (current_speed / (max_speed * size) * 100) << "%)" <<
 	"\n  animals/grass in sight: " << animals_in_sight << "/" << grass_in_sight <<
 	"\n  position: (" << get_x() << ", " << get_y() << ")" <<
 	"\n  interacting with: " << interacting_object_str <<

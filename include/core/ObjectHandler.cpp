@@ -59,6 +59,16 @@ void ObjectHandler::set_map(int val)
 					500+generateRand(1500) )
 			);
 		}
+		for(int i = 0; i < 2; i++) {
+			object_list.push_back( new Carnivore(
+					BEAR,
+					resources->get_texture("../assets/bear.png"),
+					resources->get_texture("../assets/selection_circle.png"),
+					bind(&ObjectHandler::get_objects_in_radius, this, _1, _2, _3 ),
+					-1000+generateRand(500),
+					-1000+generateRand(500) )
+			);
+		}
 	}
 }
 

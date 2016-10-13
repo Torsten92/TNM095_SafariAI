@@ -33,7 +33,7 @@ public:
 struct Case
 {
 	//resulting speed s not fixed at creation, but rather adapted to the situation
-	Case(float m_s, float m_h, int o_t, float o_si, float o_sp, float d, int res_a, float res_s = -1);
+	Case(float m_s, float m_h, int o_t, float o_si, float o_sp, float d, int res_a, float i = 1.0, float res_s = 0.5);
 	
 	//we want to remember how hungry- and how big we were at the time of this case to compare
 	float my_size;
@@ -43,10 +43,12 @@ struct Case
 	float other_size;
 	float other_speed;
 	float distance;
+	float importance; //how highly ranked a case is
 
 	int resulting_action;
 	float resulting_speed;
 	Object* resulting_interacting_object;
+	float resulting_weight;
 };
 
 
@@ -66,7 +68,7 @@ public:
 	int reason_carnivore(vector<Case> cases);
 
 	//instead of making new cases all the time, we may adapt the ones we have to fit new criteria
-	void adapt_case(Case c);
+	void adapt_case(Case* c);
 
 	//Initializes the casebase based on which animal type it is
 	void init(int type);

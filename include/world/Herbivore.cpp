@@ -120,12 +120,13 @@ void Herbivore::init(int _type)
 		{
 			w_alignment =  generateRand.distribution(0.015);
 			w_cohesion = generateRand.distribution(0.02); // 0.0005
-			w_avoidance = generateRand.distribution(0.6);
+			w_avoidance = generateRand.distribution(0.75);
 
 			scan_radius = 500.0;
 			max_age = 1000.0;
-			max_speed = 4.0;
+			max_speed = generateRand.distribution(5.0, 1.0);
 			attack_power = 0.5;
+			fear_factor = generateRand.distribution(1.0, 0.2);
 			size = 1.0;
 			break;
 		}

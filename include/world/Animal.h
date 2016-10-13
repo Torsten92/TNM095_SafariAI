@@ -28,6 +28,7 @@ public:
 	float get_speed();
 	float get_max_speed();
 	float get_hunger();
+	float get_fear_factor();
 	int get_action();
 	bool is_alive();
 	Object* get_interacting_object();
@@ -48,6 +49,8 @@ public:
 	void resolve_fight();
 	void take_damage(float val);
 	float get_fight_value();
+
+	void set_case_speed(float val);
 
 	void resolve_collisions();
 
@@ -85,11 +88,12 @@ protected:
 
 	// Constant variables initialized on creation. (most are actually not constant  because of 
 	// current alternative implementation, of which I am too lazy to fix)
-	float scan_radius = 500.0; //how far the animal can see
+	float scan_radius = 500.0; //how far the animal can see. Standard value may change depending on animal type.
 	float max_age; //age at which the animal dies
-	float max_speed; //maximum running speed
-	float stamina; //determines how fast hunger_level decreases in special draining states
-	float attack_power; //higher means more likely to win a fight
+	float max_speed; //maximum running speed. ~3 is considered slow while ~8 is considered high.
+	float stamina; //determines how fast hunger_level decreases in special draining states.
+	float attack_power; //higher means more likely to win a fight. 1.0 is average, 0 means always lose. Carnivores often have around 2 or more.
+	float fear_factor; //higher means more likely to flee from danger. 1.0 is average, 0 means always attack if possible! No real upper limit, but 2.0 is considered high
 
 	// Dynamic variables that is generally changed every frame.
 	float age = 0.0; //in seconds
@@ -98,7 +102,6 @@ protected:
 	float current_speed = 0.0; //current running speed
 	float size; //the size of the animal
 	float food_value; //amount of hunger animal restores when eaten (currently always equal to size/2)
-	float prefer_company; //higher means more likely to flock with others of its kind
 
 
 	Object* interacting_object = nullptr;	//used by some states that require another object to interact with
@@ -116,6 +119,7 @@ protected:
 	// State specific variables. Should probably be moved to separate class or something
 	vec2 goal = { 0.0, 0.0 };
 	void move(vec2 from, vec2 to, float speed_percent);
+	float case_speed = 0.5; // the speed that is returned by a potential case
 
 	// Display detailed information of the currently selected animal
 	bool selected = false;
