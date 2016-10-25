@@ -30,6 +30,13 @@ Animal::Animal(int _type, Texture* _tex, Texture* _selected_tex, function<vector
 			goal.y = interacting_object->get_y();
 
 			move(pos, goal, case_speed);
+
+			//should be handled in CBR, but change state if close just in case
+			auto a = dynamic_cast<Animal*>(interacting_object);
+			if(dist(goal, pos) < 32.0 && a->is_alive()) {
+				current_state = fight;
+				current_state();
+			} 
 		}
 		else {
 			current_state = idle; // force state change
@@ -331,5 +338,6 @@ void Animal::print_info()
 	"\n  position: (" << get_x() << ", " << get_y() << ")" <<
 	"\n  interacting with: " << interacting_object_str <<
 	"\n  flocking weights: " << setprecision(4) << w_cohesion << ", " << w_alignment << ", " << w_avoidance << " (cohesion, alignment, avoidance)" <<
+	"\n number of cases: " << cbr->get_num_cases() <<
 	"\n]\n";
 }

@@ -11,6 +11,8 @@ The animal images have been taken from http://pngimg.com/.
 
 The method used for animal reasoning is Case Based Reasning (CBR) which means that every animal uses its personal case-base to decide how to react to situations. Each animal will also learn from its experiences by potentially adding an experience as a new case into its case-base.
 
+The project is accessible by from: https://torsten92.github.io/TNM095_WildlifeSimulator/
+
 
 ## Animal reasoning:
 Every animal act as an agent that is able to scan its surroundings for other animals and objects. This scan may decide the state of the animal. For example, an animal may run away if it sees another animal running towards it, since this most likely means that animal wants to eat it. 

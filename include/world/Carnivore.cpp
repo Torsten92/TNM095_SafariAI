@@ -144,9 +144,9 @@ void Carnivore::init(int _type)
 			w_cohesion = generateRand.distribution(0.0004);
 			w_avoidance = generateRand.distribution(0.6);
 
-			scan_radius = 500.0;
+			scan_radius = 1000.0;
 			max_age = 1000.0;
-			max_speed = generateRand.distribution(5.0, 1.0);
+			max_speed = generateRand.distribution(6.0, 1.0);
 			attack_power = 3.5;
 			fear_factor = generateRand.distribution(0.4, 0.15);
 			size = 1.4;

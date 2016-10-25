@@ -73,6 +73,8 @@ public:
 	//Initializes the casebase based on which animal type it is
 	void init(int type);
 
+	int get_num_cases();
+
 private:
 	Object* me_obj;
 	bool i_am_herbivore = false; // should be removed when code is more general
